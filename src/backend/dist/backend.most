@@ -1,0 +1,2597 @@
+// Version: 3.0.0
+type AIActivityEntry__660331782 =
+  {
+    actionType : Text;
+    agentId : Text;
+    agentName : Text;
+    count : Nat;
+    result : Text;
+    timestamp : Text
+  };
+type AIAgent__1053902737 =
+  {
+    actionsLog : [Text];
+    category : Text;
+    config : Text;
+    description : Text;
+    id : Text;
+    isActive : Bool;
+    lastAction : Text;
+    name : Text;
+    parentId : ?Text;
+    tier : Text
+  };
+type AIInsight__784829903 =
+  {
+    agentId : Text;
+    content : Text;
+    createdAt : Text;
+    id : Text;
+    priority : Text;
+    status : Text;
+    title : Text
+  };
+type AISystemConfig__317551566 =
+  {
+    activeAgents : Nat;
+    activeProvider : Text;
+    claudeKeySet : Bool;
+    fallbackOrder : [Text];
+    geminiKeySet : Bool;
+    openAIKeySet : Bool;
+    totalAgents : Nat
+  };
+type AdminStaffMember__355412392 =
+  {
+    accessLevel : Text;
+    accessSections : [Text];
+    canDelete_ : Bool;
+    canExport : Bool;
+    createdAt : Int;
+    email : Text;
+    id : Text;
+    isActive : Bool;
+    lastLogin : ?Int;
+    loginId : Text;
+    name : Text;
+    passwordHash : Text;
+    phone : Text;
+    role_ : Text
+  };
+type AgentActivity__481892705 =
+  {
+    action : Text;
+    agentId : Text;
+    agentName : Text;
+    cluster : Text;
+    result : Text;
+    status : Text;
+    timestamp : Int
+  };
+type AiDecisionType__797143874 =
+  {
+    #ANOMALY_FLAGGED;
+    #BOOKING_CONFIRMED;
+    #COMMISSION_CALCULATED;
+    #CONTENT_PUBLISHED;
+    #FOLLOW_UP_SENT;
+    #LEAD_SCORED;
+    #MINOR_UI_FIX;
+    #OTHER;
+    #PROPERTY_PUBLISHED;
+    #SECURITY_BLOCKED
+  };
+type AiDecision__738020404 =
+  {
+    actionTaken : Text;
+    agentName : Text;
+    confidenceScore : Nat;
+    decisionType : AiDecisionType__797143874;
+    description : Text;
+    id : Text;
+    outcome : Text;
+    reversalReason : Text;
+    reversed : Bool;
+    reversedAt : ?Int;
+    reversible : Bool;
+    timestamp : Int
+  };
+type AnniversaryReminder__500113005 =
+  {
+    clientName : Text;
+    createdAt : Int;
+    email : Text;
+    id : Text;
+    notes : Text;
+    phone : Text;
+    reminderDate : Text;
+    reminderType : Text
+  };
+type Announcement__674333181 =
+  {
+    bgColor : Text;
+    createdAt : Int;
+    ctaText : Text;
+    ctaUrl : Text;
+    expiresAt : ?Int;
+    id : Text;
+    isActive : Bool;
+    message : Text;
+    scheduledAt : ?Int;
+    title : Text
+  };
+type AppNotification__929414022 =
+  {
+    appName : Text;
+    createdAt : Int;
+    id : Nat;
+    isRead : Bool;
+    message : Text;
+    priority : Text;
+    targetRole : Text;
+    title : Text
+  };
+type Appointment__384223623 =
+  {
+    clientEmail : Text;
+    clientName : Text;
+    clientPhone : Text;
+    createdAt : Int;
+    id : Text;
+    notes : Text;
+    preferredDate : Text;
+    preferredTime : Text;
+    service : Text;
+    status : Text;
+    type_ : Text
+  };
+type AuctionListing__10265339 =
+  {
+    bidCount : Nat;
+    currentBid : Nat;
+    description : Text;
+    endsAt : Int;
+    features : [Text];
+    id : Text;
+    location : Text;
+    minimumBid : Nat;
+    propertyType : Text;
+    startPrice : Nat;
+    status : Text;
+    title : Text;
+    watchCount : Nat
+  };
+type AuctionStatus__598946973 = Text;
+type Auction__869664979 =
+  {
+    bidIncrement : Float;
+    bids : [Bid__57381860];
+    currentBid : Float;
+    description : Text;
+    endTime : Timestamp__301639476;
+    id : Text;
+    propertyId : Text;
+    startPrice : Float;
+    startTime : Timestamp__301639476;
+    status : AuctionStatus__598946973;
+    title : Text;
+    winnerId : ?Text
+  };
+type AuditEntry__648544157 =
+  {
+    action : Text;
+    actorId : Text;
+    details : Text;
+    id : Text;
+    ipAddress : Text;
+    result : Text;
+    target : Text;
+    timestamp : Int
+  };
+type AuditEntry__849002978 =
+  {
+    action : Text;
+    details : Text;
+    deviceId : Text;
+    id : Text;
+    ip : Text;
+    staffId : Text;
+    timestamp : Int
+  };
+type AuditRecord__979315651 =
+  {
+    action : Text;
+    details : Text;
+    deviceId : Text;
+    id : Nat;
+    ipAddress : Text;
+    staffId : Text;
+    target : Text;
+    timestamp : Int
+  };
+type Bid__57381860 =
+  {
+    amount : Float;
+    auctionId : Text;
+    bidderId : Text;
+    id : Text;
+    isWinning : Bool;
+    timestamp : Timestamp__301639476
+  };
+type BiometricEnrollment__69235730 =
+  {
+    approvedAt : Int;
+    isApproved : Bool;
+    isRevoked : Bool;
+    publicKey : Text;
+    requestedAt : Int;
+    staffId : Text
+  };
+type BlogPost__543622485 =
+  {
+    author : Text;
+    category : Text;
+    content : Text;
+    createdAt : Int;
+    excerpt : Text;
+    id : Text;
+    isPublished : Bool;
+    metaDescription : Text;
+    slug : Text;
+    title : Text;
+    updatedAt : Int
+  };
+type BookingStatus__10176221 = Text;
+type BookingType__810338024 = Text;
+type Booking__628731632 =
+  {
+    agentId : Text;
+    bookingType : BookingType__810338024;
+    clientId : Text;
+    createdAt : Timestamp__301639476;
+    id : Text;
+    notes : Text;
+    propertyId : Text;
+    scheduledAt : Timestamp__301639476;
+    status : BookingStatus__10176221
+  };
+type BuilderProfile__131094857 =
+  {
+    about : Text;
+    completedProjects : Nat;
+    contact : Text;
+    id : Text;
+    isVerified : Bool;
+    localities : [Text];
+    name : Text;
+    ongoingProjects : Nat;
+    rating : Float;
+    registeredSince : Text;
+    reraNumber : Text
+  };
+type BuilderTrustRecord__1034432718 =
+  {
+    builderId : Text;
+    builderName : Text;
+    complaintCount : Nat;
+    deliveryScore : Nat;
+    lastUpdated : Int;
+    reraFilingCount : Nat;
+    trustScore : Nat
+  };
+type CallbackRequest__836999675 =
+  {
+    id : Text;
+    isRead : Bool;
+    name : Text;
+    pageName : Text;
+    phone : Text;
+    service : Text;
+    timestamp : Int
+  };
+type Campaign__370329394 =
+  {
+    audience : Text;
+    channel : Text;
+    createdAt : Int;
+    id : Nat;
+    messagePreview : Text;
+    openCount : Nat;
+    replyCount : Nat;
+    scheduledAt : ?Int;
+    sentCount : Nat;
+    status : Text;
+    title : Text
+  };
+type CanaryToken__991280092 =
+  {
+    createdAt : Int;
+    id : Text;
+    isTriggered : Bool;
+    tokenLabel : Text;
+    tokenValue : Text;
+    triggeredAt : ?Int;
+    triggeredBy : Text
+  };
+type ChatInteraction__98517394 =
+  {
+    botResponse : Text;
+    id : Nat;
+    messageLength : Nat;
+    sentimentTag : Text;
+    sessionId : Text;
+    timestamp : Int;
+    userMessage : Text
+  };
+type Client__171211559 =
+  {
+    clientType : Text;
+    createdAt : Int;
+    email : Text;
+    id : Nat;
+    lastContact : Int;
+    ltv : Nat;
+    name : Text;
+    notes : Text;
+    phone : Text;
+    totalDeals : Nat;
+    totalValue : Nat
+  };
+type Client__704034099 =
+  {
+    address : Text;
+    buyingReadiness : Text;
+    createdAt : Int;
+    email : Text;
+    id : Text;
+    joinedAt : Int;
+    lastInteraction : ?Int;
+    lastUpdated : Int;
+    lifetimeValue : Nat;
+    name : Text;
+    notes : Text;
+    phone : Text;
+    status : Text;
+    totalDeals : Nat;
+    totalValue : Text;
+    type_ : Text
+  };
+type CommissionInvoice__106746891 =
+  {
+    amount : Nat;
+    clientName : Text;
+    commission : Nat;
+    createdAt : Int;
+    description : Text;
+    dueDate : Int;
+    id : Nat;
+    paidDate : ?Int;
+    serviceType : Text;
+    status : Text
+  };
+type CommissionRecord__870123441 =
+  {
+    agentId : Text;
+    amount : Float;
+    approvedBy : ?Text;
+    createdAt : Timestamp__301639476;
+    dealId : Text;
+    id : Text;
+    paidAt : ?Timestamp__301639476;
+    percentage : Float;
+    status : CommissionStatus__224807318
+  };
+type CommissionStatus__224807318 = Text;
+type ComplaintTicket__266511644 =
+  {
+    createdAt : Int;
+    customerName : Text;
+    id : Text;
+    issue : Text;
+    notes : Text;
+    phone : Text;
+    refNumber : Text;
+    resolvedAt : ?Int;
+    service : Text;
+    status : Text
+  };
+type Course__727470012 =
+  {
+    category : Text;
+    createdAt : Timestamp__301639476;
+    description : Text;
+    duration : Nat;
+    enrolledCount : Nat;
+    id : Text;
+    instructor : Text;
+    isPublished : Bool;
+    lessons : [Lesson__315016524];
+    title : Text
+  };
+type CrmAppointment__228900809 =
+  {
+    clientName : Text;
+    createdBy : Text;
+    durationMins : Nat;
+    id : Nat;
+    location : Text;
+    notes : Text;
+    scheduledAt : Int;
+    status : Text;
+    type_ : Text
+  };
+type CsrImpactEntry__567122423 =
+  {
+    category : Text;
+    description : Text;
+    id : Text;
+    metric : Text;
+    updatedAt : Int;
+    value : Nat;
+    year : Nat
+  };
+type DailyBriefing__322167134 =
+  {
+    createdAt : Int;
+    date : Text;
+    dealsMovingCount : Nat;
+    generatedSummary : Text;
+    id : Text;
+    marketNews : [Text];
+    newLeadsCount : Nat;
+    revenueFigure : Float;
+    securityEventsCount : Nat;
+    tasksDueCount : Nat
+  };
+type DashboardStat__1009172187 =
+  {
+    change : Int;
+    icon : Text;
+    key : Text;
+    period : Text;
+    statLabel : Text;
+    value : Nat
+  };
+type Data__628993992<T> = {var count : Nat__1040412405; elements : [var ?T]};
+type Data__80296667<K, V> =
+  {var count : Nat__1040412405; kvs : [var ?(K, V)]};
+type DealNote__407018497 =
+  {
+    authorId : Text;
+    content : Text;
+    dealId : Text;
+    id : Text;
+    timestamp : Timestamp__301639476
+  };
+type DealStage__690674562 = Text;
+type Deal__384601022 =
+  {
+    actualCloseDate : ?Timestamp__301639476;
+    agentId : Text;
+    clientId : Text;
+    commissionAmount : Float;
+    createdAt : Timestamp__301639476;
+    documents : [Text];
+    expectedCloseDate : Timestamp__301639476;
+    id : Text;
+    notes : Text;
+    propertyId : Text;
+    stage : DealStage__690674562;
+    title : Text
+  };
+type Deal__986256399 =
+  {
+    clientEmail : Text;
+    clientName : Text;
+    clientPhone : Text;
+    createdAt : Int;
+    followUpDate : ?Int;
+    id : Text;
+    notes : Text;
+    service : Text;
+    stage : Text;
+    updatedAt : Int
+  };
+type DeviceRecord__314191154 =
+  {
+    deviceId : Text;
+    id : Text;
+    ipAddress : Text;
+    lastSeenAt : Int;
+    registeredAt : Int;
+    staffId : Text;
+    status : DeviceStatus__636765790;
+    trustScore : Nat;
+    userAgent : Text
+  };
+type DeviceStatus__636765790 = {#blocked; #pending; #revoked; #trusted};
+type Enrollment__955523818 =
+  {
+    completedAt : ?Timestamp__301639476;
+    completedLessons : [Text];
+    courseId : Text;
+    enrolledAt : Timestamp__301639476;
+    id : Text;
+    progress : Nat;
+    studentId : Text
+  };
+type EventBooking__875735667 =
+  {
+    clientEmail : Text;
+    clientName : Text;
+    clientPhone : Text;
+    createdAt : Int;
+    eventDate : Text;
+    eventType : Text;
+    guestCount : Text;
+    id : Text;
+    notes : Text;
+    status : Text;
+    venue : Text
+  };
+type Event___237379394 =
+  {
+    budget : Nat;
+    capacity : Nat;
+    confirmedCount : Nat;
+    description : Text;
+    id : Nat;
+    scheduledAt : Int;
+    status : Text;
+    title : Text;
+    type_ : Text;
+    venue : Text
+  };
+type ExchangeEnquiry__1069785949 =
+  {
+    buyerId : Text;
+    id : Text;
+    listingId : Text;
+    message : Text;
+    offerPrice : ?Float;
+    timestamp : Timestamp__301639476
+  };
+type ExchangeListing__93197306 =
+  {
+    askPrice : Float;
+    createdAt : Timestamp__301639476;
+    description : Text;
+    enquiries : [ExchangeEnquiry__1069785949];
+    id : Text;
+    propertyId : Text;
+    sellerId : Text;
+    status : ListingStatus__771157071;
+    viewCount : Nat
+  };
+type Feedback__217957820 =
+  {
+    comment : Text;
+    id : Text;
+    isRead : Bool;
+    pageName : Text;
+    rating : Nat;
+    timestamp : Int
+  };
+type FinancialMetric__524615748 =
+  {
+    averageDealSize : Nat;
+    closedDeals : Nat;
+    conversionRate : Nat;
+    newLeads : Nat;
+    period : Text;
+    totalCommissions : Nat;
+    totalRevenue : Nat
+  };
+type InterestRateEntry__744275927 = {bank : Text; rate : Float};
+type Internal__1007892817<T> =
+  {children : [var ?Node__918630472<T>]; data : Data__628993992<T>};
+type Internal__41346355<K, V> =
+  {children : [var ?Node__1000929467<K, V>]; data : Data__80296667<K, V>};
+type InvestmentGrade__635368644 = {#avoid; #buy; #hold};
+type Invoice__772203955 =
+  {
+    clientEmail : Text;
+    clientName : Text;
+    clientPhone : Text;
+    createdAt : Int;
+    id : Text;
+    invoiceNumber : Text;
+    notes : Text;
+    service : Text;
+    status : Text;
+    taxAmount : Float;
+    totalAmount : Float
+  };
+type JantriRate__278964754 =
+  {area : Text; effectiveFrom : Text; ratePerSqFt : Nat; updatedAt : Int};
+type LeadNurtureReminder__759947521 =
+  {
+    id : Text;
+    isDismissed : Bool;
+    lastContactedAt : Int;
+    leadId : Text;
+    leadName : Text;
+    phone : Text;
+    reminderDays : Nat;
+    service : Text
+  };
+type LeadQualification__399471179 =
+  {
+    budget : Text;
+    createdAt : Int;
+    id : Text;
+    leadScore : Text;
+    location : Text;
+    propertyType : Text;
+    sessionId : Text
+  };
+type Lead__21276013 =
+  {
+    assignedTo : Text;
+    createdAt : Int;
+    email : Text;
+    estimatedValue : Nat;
+    id : Nat;
+    name : Text;
+    notes : Text;
+    phone : Text;
+    score : Text;
+    service : Text;
+    source : Text;
+    stage : Text;
+    updatedAt : Int
+  };
+type Lead__849419588 =
+  {
+    assignedTo : Text;
+    budget : Text;
+    createdAt : Int;
+    email : Text;
+    followUpDate : ?Int;
+    heatScore : Nat;
+    id : Text;
+    interest : Text;
+    lastContact : ?Int;
+    location : Text;
+    name : Text;
+    notes : Text;
+    phone : Text;
+    propertyType : Text;
+    score : Nat;
+    source : Text;
+    stage : Text;
+    status : Text;
+    tags : [Text]
+  };
+type Leaf__693487502<T> = {data : Data__628993992<T>};
+type Leaf__712614010<K, V> = {data : Data__80296667<K, V>};
+type LegalDoc__116755978 =
+  {
+    category : Text;
+    createdAt : Int;
+    docStatus : Text;
+    id : Text;
+    riskScore : Nat;
+    signedBy : [Text];
+    title : Text;
+    updatedAt : Int;
+    version : Nat
+  };
+type Lesson__315016524 =
+  {
+    content : Text;
+    courseId : Text;
+    duration : Nat;
+    id : Text;
+    order : Nat;
+    title : Text;
+    videoUrl : ?Text
+  };
+type List__529703492<T> =
+  {
+    var blockIndex : Nat__1040412405;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__1040412405
+  };
+type List__560604548<T> = List__529703492<T>;
+type ListingStatus__771157071 = Text;
+type LocalityDemand__65538240 =
+  {enquiryCount : Nat; lastUpdated : Int; locality : Text; viewCount : Nat};
+type LoginAttemptRecord__580651343 =
+  {staffId : Text; succeeded : Bool; timestamp : Int};
+type MarketDataPoint__363669455 =
+  {
+    avgPricePerSqft : Nat;
+    id : Text;
+    locality : Text;
+    month : Nat;
+    propertyType : Text;
+    trend : Text;
+    year : Nat
+  };
+type MarketReport__189651801 =
+  {
+    content : Text;
+    createdAt : Int;
+    id : Text;
+    isPublished : Bool;
+    month : Text;
+    title : Text;
+    year : Text
+  };
+type MediaCategory__717859374 = Text;
+type MediaPost__739830764 =
+  {
+    author : Text;
+    category : MediaCategory__717859374;
+    content : Text;
+    createdAt : Timestamp__301639476;
+    id : Text;
+    isPublished : Bool;
+    publishedAt : ?Timestamp__301639476;
+    tags : [Text];
+    title : Text;
+    views : Nat
+  };
+type MoreInfoRequest__503451381 =
+  {
+    email : Text;
+    id : Text;
+    isRead : Bool;
+    name : Text;
+    pageName : Text;
+    question : Text;
+    service : Text;
+    timestamp : Int
+  };
+type MusicArtist__135946405 =
+  {
+    available : Bool;
+    bio : Text;
+    bookingContact : Text;
+    genre : Text;
+    id : Text;
+    instagramUrl : Text;
+    name : Text;
+    specialties : [Text];
+    youtubeUrl : Text
+  };
+type Nat__1040412405 = Nat__920180692;
+type Nat__920180692 = Nat;
+type NewsArticle__454649990 =
+  {
+    imageUrl : Text;
+    publishedAt : Text;
+    source : Text;
+    summary : Text;
+    title : Text;
+    url : Text
+  };
+type Node__1000929467<K, V> =
+  {#internal : Internal__41346355<K, V>; #leaf : Leaf__712614010<K, V>};
+type Node__918630472<T> =
+  {#internal : Internal__1007892817<T>; #leaf : Leaf__693487502<T>};
+type Notification__879889657 =
+  {
+    createdAt : Int;
+    id : Text;
+    isRead : Bool;
+    message : Text;
+    relatedId : ?Text;
+    title : Text;
+    type_ : Text
+  };
+type OTPRecord__170252474 =
+  {attempts : Nat; code : Text; expiry : Int; staffId : Text; used : Bool};
+type ObserverAccessLog__842138072 =
+  {code : Text; id : Text; scope : Text; sessionId : Text; timestamp : Int};
+type ObserverCodeInfo__884371497 =
+  {
+    active : Bool;
+    code : Text;
+    codeLabel : Text;
+    createdAt : Int;
+    createdBy : Text;
+    expiresAt : ?Int;
+    scope : [Text];
+    singleUse : Bool;
+    used : Bool;
+    usedAt : ?Int;
+    usedBy : ?Text
+  };
+type ObserverCodeRecord__720556695 =
+  {
+    code : Text;
+    createdBy : Text;
+    expiresAt : Int;
+    isRevoked : Bool;
+    observerLabel : Text;
+    scope : Text;
+    singleUse : Bool;
+    used : Bool
+  };
+type ObserverCode__261513817 =
+  {
+    code : Text;
+    createdAt : Int;
+    createdBy : Text;
+    expiresAt : ?Int;
+    expiryType : Text;
+    id : Nat;
+    isActive : Bool;
+    labelText : Text;
+    lastUsedAt : ?Int;
+    permissions : [Text];
+    useCount : Nat
+  };
+type OldClient__766621721 =
+  {
+    address : Text;
+    createdAt : Int;
+    email : Text;
+    id : Text;
+    lastUpdated : Int;
+    name : Text;
+    notes : Text;
+    phone : Text
+  };
+type OldLead__546225271 =
+  {
+    assignedTo : Text;
+    budget : Nat;
+    createdAt : Int;
+    email : Text;
+    id : Text;
+    interest : Text;
+    lastContact : Int;
+    name : Text;
+    phone : Text;
+    score : Nat;
+    status : Text
+  };
+type OldPropertyStatus__1037817360 = {#available; #rented; #sold};
+type OldProperty__683581429 =
+  {
+    area : Nat;
+    createdAt : Int;
+    description : Text;
+    id : Text;
+    location : Text;
+    price : Nat;
+    propertyType : Text;
+    status : OldPropertyStatus__1037817360;
+    title : Text
+  };
+type OtpRecord__835494947 =
+  {code : Text; expiry : Int; staffId : Text; used : Bool};
+type PartnerApplication__103802231 =
+  {
+    areas : Text;
+    company : Text;
+    createdAt : Int;
+    email : Text;
+    experience : Text;
+    id : Text;
+    name : Text;
+    notes : Text;
+    phone : Text;
+    status : Text
+  };
+type PriceHistoryEntry__885564409 =
+  {
+    date : Text;
+    note : Text;
+    price : Nat;
+    propertyId : Text;
+    recordedAt : Int
+  };
+type PriceHistoryEntry__982004485 =
+  {
+    note : Text;
+    price : Nat;
+    propertyId : Text;
+    recordedAt : Int;
+    recordedBy : Text
+  };
+type PropertyAlert__380359722 =
+  {
+    action : Text;
+    bhk : Text;
+    createdAt : Int;
+    email : Text;
+    id : Text;
+    location : Text;
+    maxBudget : Nat;
+    name : Text;
+    phone : Text;
+    propertyType : Text
+  };
+type PropertyEnquiry__908993580 =
+  {
+    agencyName : Text;
+    agencyPhone : Text;
+    contactedAt : ?Int;
+    customerEmail : Text;
+    customerMessage : Text;
+    customerName : Text;
+    customerPhone : Text;
+    id : Text;
+    notes : Text;
+    ownerEmail : Text;
+    ownerName : Text;
+    ownerPhone : Text;
+    preferredTime : Text;
+    propertyAddress : Text;
+    propertyBhk : Text;
+    propertyId : Text;
+    propertyPrice : Text;
+    propertySqft : Nat;
+    propertyTitle : Text;
+    propertyType : Text;
+    sourceTag : Text;
+    status : Text;
+    submittedAt : Int;
+    visitDate : Text
+  };
+type PropertyIntelligence__822294623 =
+  {
+    amenities : [Text];
+    builderId : Text;
+    builderTrustScore : Nat;
+    investmentGrade : InvestmentGrade__635368644;
+    latitude : Float;
+    longitude : Float;
+    negotiationMax : Nat;
+    negotiationMin : Nat;
+    propertyId : Text;
+    reraNumber : Text;
+    updatedAt : Int
+  };
+type PropertyListing__248911652 =
+  {
+    action : Text;
+    address : Text;
+    agencyName : Text;
+    agencyPhone : Text;
+    amenities : [Text];
+    bhk : Text;
+    city : Text;
+    description : Text;
+    facing : Text;
+    floorNo : Nat;
+    furnishing : Text;
+    id : Text;
+    images : [Text];
+    listedDate : Text;
+    location : Text;
+    mapLink : Text;
+    ownerEmail : Text;
+    ownerName : Text;
+    ownerPhone : Text;
+    possession : Text;
+    price : Nat;
+    priceDisplay : Text;
+    propertyType : Text;
+    societyName : Text;
+    sourceTag : Text;
+    sqft : Nat;
+    title : Text
+  };
+type Property__612470078 =
+  {
+    amenities : [Text];
+    area : Text;
+    areaRaw : Nat;
+    builderName : Text;
+    createdAt : Int;
+    description : Text;
+    enquiries : Nat;
+    id : Text;
+    images : [Text];
+    listingDate : Int;
+    location : Text;
+    price : Text;
+    priceRaw : Nat;
+    propertyType : Text;
+    reraNumber : ?Text;
+    status : Text;
+    tags : [Text];
+    title : Text;
+    type_ : Text;
+    views : Nat
+  };
+type Proposal__521768281 =
+  {
+    amount : Nat;
+    clientName : Text;
+    createdAt : Int;
+    expiresAt : Int;
+    id : Nat;
+    notes : Text;
+    propertyTitle : Text;
+    status : Text
+  };
+type QuoteRequest__431054610 =
+  {
+    email : Text;
+    id : Text;
+    isRead : Bool;
+    message : Text;
+    name : Text;
+    pageName : Text;
+    phone : Text;
+    service : Text;
+    timestamp : Int
+  };
+type RSVP__105169714 =
+  {
+    email : Text;
+    eventId : Nat;
+    guestCount : Nat;
+    guestName : Text;
+    id : Nat;
+    phone : Text;
+    status : Text
+  };
+type Referral__159659315 =
+  {
+    clicks : Nat;
+    code : Text;
+    createdAt : Int;
+    enquiries : [Text];
+    id : Text;
+    referrerEmail : Text;
+    referrerName : Text;
+    referrerPhone : Text
+  };
+type ReviewRecord__9225060 =
+  {
+    id : Nat;
+    platform : Text;
+    rating : Nat;
+    responded : Bool;
+    responseText : ?Text;
+    reviewDate : Int;
+    reviewText : Text;
+    reviewerName : Text;
+    sentiment : Text
+  };
+type RichSecurityEvent__396541125 =
+  {
+    aiTierId : Text;
+    description : Text;
+    eventType : Text;
+    id : Text;
+    resolved : Bool;
+    resolvedAt : ?Int;
+    severity : Text;
+    sourceIp : Text;
+    timestamp : Int
+  };
+type SatisfactionRating__461778196 =
+  {
+    enquiryId : Text;
+    feedback : Text;
+    id : Text;
+    rating : Nat;
+    submittedAt : Int
+  };
+type SecurityEventType__611869480 =
+  {
+    #ANOMALY_DETECTED;
+    #BIOMETRIC_ENROLL;
+    #CANARY_TRIGGERED;
+    #EMERGENCY_LOCKDOWN;
+    #FORCE_LOGOUT;
+    #LOCKOUT;
+    #LOGIN_FAIL;
+    #LOGIN_SUCCESS;
+    #OTP_FAIL;
+    #OTP_SENT
+  };
+type SecurityEvent__169044105 =
+  {
+    details : Text;
+    deviceId : Text;
+    eventType : SecurityEventType__611869480;
+    id : Nat;
+    ipAddress : Text;
+    staffId : Text;
+    timestamp : Int
+  };
+type SecurityEvent__338469793 =
+  {
+    description : Text;
+    eventType : Text;
+    id : Text;
+    resolved : Bool;
+    severity : Text;
+    sourceIP : Text;
+    timestamp : Int
+  };
+type ServiceSubmission__271587168 =
+  {
+    fields : [(Text, Text)];
+    formType : Text;
+    id : Nat;
+    indemnityAccepted : Bool;
+    innerPage : Text;
+    isRead : Bool;
+    serviceCategory : Text;
+    submitterEmail : Text;
+    submitterName : Text;
+    submitterPhone : Text;
+    timestamp : Int
+  };
+type Service__311281967 =
+  {description : Text; icon : Text; id : Nat; name : Text; slug : Text};
+type Session__107932720 =
+  {
+    createdAt : Int;
+    currentPage : Text;
+    deviceId : Text;
+    ip : Text;
+    isActive : Bool;
+    lastActivity : Int;
+    sessionId : Text;
+    staffId : Text;
+    userAgent : Text
+  };
+type Session__983796129 =
+  {
+    createdAt : Int;
+    deviceId : Text;
+    ipAddress : Text;
+    isActive : Bool;
+    lastActivity : Int;
+    sessionId : Text;
+    staffId : Text;
+    userAgent : Text
+  };
+type SiteVisit__146388075 =
+  {
+    clientName : Text;
+    clientPhone : Text;
+    createdAt : Int;
+    id : Text;
+    notes : Text;
+    propertyAddress : Text;
+    scheduledDate : Int;
+    scheduledTime : Text;
+    status : Text
+  };
+type SocietyReview__64899276 =
+  {
+    amenities : Nat;
+    createdAt : Int;
+    id : Text;
+    isApproved : Bool;
+    maintenance : Nat;
+    management : Nat;
+    rating : Nat;
+    review : Text;
+    reviewerAlias : Text;
+    security : Nat;
+    societyName : Text
+  };
+type StaffMember__985834694 =
+  {
+    biometricApproved : Bool;
+    biometricEnrolled : Bool;
+    createdAt : Int;
+    firstLoginDone : Bool;
+    id : Text;
+    isActive : Bool;
+    lastLoginAt : ?Int;
+    mobileNumber : Text;
+    mobileVerified : Bool;
+    passwordHash : Text;
+    role : StaffRole__161233680;
+    username : Text
+  };
+type StaffRole__161233680 = {#Manager; #Owner; #Staff; #Viewer};
+type StaffRole__235275101 = {#admin; #agent; #manager; #viewer};
+type Staff__191166072 =
+  {
+    biometricEnrolled : Bool;
+    biometricPublicKey : Text;
+    createdAt : Int;
+    deviceId : Text;
+    email : Text;
+    firstLoginDone : Bool;
+    id : Text;
+    isActive : Bool;
+    isSuspended : Bool;
+    lastLogin : Int;
+    lockedUntil : Int;
+    loginAttempts : Nat;
+    mobileNumber : Text;
+    name : Text;
+    passwordHash : Text;
+    role : StaffRole__235275101;
+    sessionToken : Text
+  };
+type SupportForm__19137679 =
+  {
+    email : Text;
+    id : Text;
+    isRead : Bool;
+    message : Text;
+    name : Text;
+    phone : Text;
+    service : Text;
+    timestamp : Int
+  };
+type ThreatIntelEntry__1066105229 =
+  {
+    detectedAt : Int;
+    id : Text;
+    ipAddress : Text;
+    isBlocked : Bool;
+    reason : Text;
+    severity : Text
+  };
+type Timestamp__301639476 = Int;
+type TutorialCompletion__405505959 =
+  {
+    appKey : Text;
+    completedAt : Int;
+    mode : Text;
+    skipped : Bool;
+    userId : Text
+  };
+type TutorialStep__641602042 =
+  {
+    appKey : Text;
+    content : Text;
+    id : Nat;
+    isActive : Bool;
+    mode : Text;
+    order : Nat;
+    stepIndex : Nat;
+    targetElement : ?Text;
+    title : Text
+  };
+type TutorialSuggestion__1032445214 =
+  {
+    appKey : Text;
+    createdAt : Int;
+    id : Nat;
+    mode : Text;
+    reason : Text;
+    status : Text;
+    stepIndex : Nat;
+    suggestedContent : Text
+  };
+type VendorJobStatus__405335151 = Text;
+type VendorJob__1032492001 =
+  {
+    amount : Float;
+    completedAt : ?Timestamp__301639476;
+    createdAt : Timestamp__301639476;
+    id : Text;
+    jobType : Text;
+    propertyId : Text;
+    status : VendorJobStatus__405335151;
+    vendorId : Text
+  };
+type Vendor__717819561 =
+  {
+    category : Text;
+    contactName : Text;
+    createdAt : Timestamp__301639476;
+    email : Text;
+    id : Text;
+    isActive : Bool;
+    name : Text;
+    notes : Text;
+    phone : Text;
+    rating : Float;
+    totalJobs : Nat
+  };
+type VisitRequest__595980542 =
+  {
+    createdAt : Int;
+    customerEmail : Text;
+    customerName : Text;
+    customerPhone : Text;
+    id : Text;
+    preferredDate : Text;
+    preferredTime : Text;
+    propertyId : Text;
+    propertyTitle : Text;
+    status : Text;
+    visitType : Text
+  };
+actor ({
+  stable OTP_EXPIRY_NS : Int;
+  stable OWNER_PASSWORD_HASH : Text;
+  stable OWNER_USERNAME : Text;
+  stable SESSION_TIMEOUT_NS : Int;
+  stable academyState_ :
+    {
+      var nextCourseCounter : Nat;
+      var nextEnrollmentCounter : Nat;
+      var nextLessonCounter : Nat
+    };
+  stable activeVisitors :
+    {var root : Node__918630472<Text>; var size : Nat__1040412405};
+  stable adminStaffMembers :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AdminStaffMember__355412392]];
+      var elementIndex : Nat__1040412405
+    };
+  stable agentActivities :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AgentActivity__481892705]];
+      var elementIndex : Nat__1040412405
+    };
+  stable aiActivityLog :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AIActivityEntry__660331782]];
+      var elementIndex : Nat__1040412405
+    };
+  stable aiAgents :
+    {
+      var root : Node__1000929467<Text, AIAgent__1053902737>;
+      var size : Nat__1040412405
+    };
+  stable aiDailyStats :
+    {
+      var chatMessagesProcessed : Nat;
+      var complianceChecks : Nat;
+      var contentGenerated : Nat;
+      var documentsAnalyzed : Nat;
+      var interactions : Nat;
+      var lastResetDate : Text;
+      var leadsProcessed : Nat;
+      var propertiesAdded : Nat
+    };
+  stable aiDecisions_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AiDecision__738020404]];
+      var elementIndex : Nat__1040412405
+    };
+  stable aiInsights :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AIInsight__784829903]];
+      var elementIndex : Nat__1040412405
+    };
+  stable aiSystemConfigState : {var cfg : AISystemConfig__317551566};
+  stable anniversaryReminders :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AnniversaryReminder__500113005]];
+      var elementIndex : Nat__1040412405
+    };
+  stable announcements :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Announcement__674333181]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var appNotifications : [AppNotification__929414022];
+  stable appointments :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Appointment__384223623]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var auctionCounter : Nat;
+  stable auctionListings :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AuctionListing__10265339]];
+      var elementIndex : Nat__1040412405
+    };
+  stable auctionState_ : {var nextAuctionCounter : Nat};
+  stable auctions_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Auction__869664979]];
+      var elementIndex : Nat__1040412405
+    };
+  stable auditLog :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AuditEntry__849002978]];
+      var elementIndex : Nat__1040412405
+    };
+  stable auditLog_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AuditEntry__648544157]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var autoArchiveDays : Nat;
+  stable blogPosts :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?BlogPost__543622485]];
+      var elementIndex : Nat__1040412405
+    };
+  stable bookingState_ : {var nextBookingCounter : Nat};
+  stable bookings_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Booking__628731632]];
+      var elementIndex : Nat__1040412405
+    };
+  stable briefingState_ :
+    {
+      var nextAccessLogCounter : Nat;
+      var nextBriefingCounter : Nat;
+      var nextDecisionCounter : Nat
+    };
+  stable builderProfiles :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?BuilderProfile__131094857]];
+      var elementIndex : Nat__1040412405
+    };
+  stable builderTrustRecords_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?BuilderTrustRecord__1034432718]];
+      var elementIndex : Nat__1040412405
+    };
+  stable callbackList :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?CallbackRequest__836999675]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var campaigns : [Campaign__370329394];
+  stable canaryTokens_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?CanaryToken__991280092]];
+      var elementIndex : Nat__1040412405
+    };
+  stable chatTopics :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?(Text, Nat)]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var clients : [Client__171211559];
+  stable var commissionInvoices : [CommissionInvoice__106746891];
+  stable commissionState_ : {var nextCommissionCounter : Nat};
+  stable commissions_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?CommissionRecord__870123441]];
+      var elementIndex : Nat__1040412405
+    };
+  stable complaintTickets :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ComplaintTicket__266511644]];
+      var elementIndex : Nat__1040412405
+    };
+  stable courses_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Course__727470012]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var crmAppointments : [CrmAppointment__228900809];
+  stable csrEntries :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?CsrImpactEntry__567122423]];
+      var elementIndex : Nat__1040412405
+    };
+  stable dailyBriefings_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?DailyBriefing__322167134]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var dashboardStats : [DashboardStat__1009172187];
+  stable var dealCounterDesc : Text;
+  stable var dealCounterUpdatedAt : Int;
+  stable var dealCounterValue : Nat;
+  stable dealNotes_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?DealNote__407018497]];
+      var elementIndex : Nat__1040412405
+    };
+  stable dealState_ : {var nextDealCounter : Nat; var nextNoteCounter : Nat};
+  stable deals :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Deal__986256399]];
+      var elementIndex : Nat__1040412405
+    };
+  stable deals_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Deal__384601022]];
+      var elementIndex : Nat__1040412405
+    };
+  stable deviceRecords_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?DeviceRecord__314191154]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var dynamicAuctions :
+    [{
+       bidCount : Nat;
+       currentBid : Nat;
+       description : Text;
+       endsAt : Int;
+       features : [Text];
+       id : Text;
+       location : Text;
+       minimumBid : Nat;
+       propertyType : Text;
+       startPrice : Nat;
+       status : Text;
+       title : Text;
+       watchCount : Nat
+     }];
+  stable enrollments_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Enrollment__955523818]];
+      var elementIndex : Nat__1040412405
+    };
+  stable eventBookings :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?EventBooking__875735667]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var events_ : [Event___237379394];
+  stable exchangeListings_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ExchangeListing__93197306]];
+      var elementIndex : Nat__1040412405
+    };
+  stable exchangeState_ :
+    {var nextEnquiryCounter : Nat; var nextListingCounter : Nat};
+  stable feedbackList :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Feedback__217957820]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var financialMetrics : [FinancialMetric__524615748];
+  stable interactions :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ChatInteraction__98517394]];
+      var elementIndex : Nat__1040412405
+    };
+  stable invoices :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Invoice__772203955]];
+      var elementIndex : Nat__1040412405
+    };
+  stable jantriRates_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?JantriRate__278964754]];
+      var elementIndex : Nat__1040412405
+    };
+  stable leadNurtureReminders :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?LeadNurtureReminder__759947521]];
+      var elementIndex : Nat__1040412405
+    };
+  stable leadQualifications :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?LeadQualification__399471179]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var leads : [Lead__21276013];
+  stable var legacyAuctionCounter : Nat;
+  stable var legalDocCounter : Nat;
+  stable var legalDocs : [LegalDoc__116755978];
+  stable localityDemand_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?LocalityDemand__65538240]];
+      var elementIndex : Nat__1040412405
+    };
+  stable loginAttempts :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?LoginAttemptRecord__580651343]];
+      var elementIndex : Nat__1040412405
+    };
+  stable marketDataCache :
+    {
+      var interestRates : [InterestRateEntry__744275927];
+      var jantriUpdate : Text;
+      var lastUpdated : Text;
+      var rbiNote : Text
+    };
+  stable var marketDataCounter : Nat;
+  stable var marketDataPoints : [MarketDataPoint__363669455];
+  stable marketReports :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?MarketReport__189651801]];
+      var elementIndex : Nat__1040412405
+    };
+  stable mediaPosts_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?MediaPost__739830764]];
+      var elementIndex : Nat__1040412405
+    };
+  stable mediaState_ : {var nextPostCounter : Nat};
+  stable moreInfoList :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?MoreInfoRequest__503451381]];
+      var elementIndex : Nat__1040412405
+    };
+  stable musicArtists :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?MusicArtist__135946405]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newAuditRecords_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AuditRecord__979315651]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newBiometricEnrollments_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?BiometricEnrollment__69235730]];
+      var elementIndex : Nat__1040412405
+    };
+  in newClients_ : List__560604548<OldClient__766621721>;
+  in newLeads_ : List__560604548<OldLead__546225271>;
+  stable newObserverCodes_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ObserverCodeRecord__720556695]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newOtpRecords_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?OtpRecord__835494947]];
+      var elementIndex : Nat__1040412405
+    };
+  in newProperties_ : List__560604548<OldProperty__683581429>;
+  stable newSecEvents_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?SecurityEvent__169044105]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newSessions_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Session__983796129]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newStaff_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Staff__191166072]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var nextCampaignId : Nat;
+  stable var nextClientId : Nat;
+  stable var nextCrmAppointmentId : Nat;
+  stable var nextEnquiryId : Nat;
+  stable var nextEventId : Nat;
+  stable var nextFormId : Nat;
+  stable var nextInteractionId : Nat;
+  stable var nextInvoiceId : Nat;
+  stable var nextLeadId : Nat;
+  stable var nextNotificationId : Nat;
+  stable var nextProposalId : Nat;
+  stable var nextRSVPId : Nat;
+  stable var nextReviewId : Nat;
+  stable var nextSubmissionId : Nat;
+  stable notifications :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Notification__879889657]];
+      var elementIndex : Nat__1040412405
+    };
+  stable observerAccessLogs_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ObserverAccessLog__842138072]];
+      var elementIndex : Nat__1040412405
+    };
+  stable observerCodeInfos_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ObserverCodeInfo__884371497]];
+      var elementIndex : Nat__1040412405
+    };
+  stable observerCodes :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ObserverCode__261513817]];
+      var elementIndex : Nat__1040412405
+    };
+  stable observerState : {var nextObserverCodeId : Nat};
+  stable otpRecords :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?OTPRecord__170252474]];
+      var elementIndex : Nat__1040412405
+    };
+  stable partnerApplications :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PartnerApplication__103802231]];
+      var elementIndex : Nat__1040412405
+    };
+  stable priceHistory :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PriceHistoryEntry__885564409]];
+      var elementIndex : Nat__1040412405
+    };
+  stable priceHistory_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PriceHistoryEntry__982004485]];
+      var elementIndex : Nat__1040412405
+    };
+  stable propIntelState_ : {var nextPriceHistoryCounter : Nat};
+  stable propState_ :
+    {
+      var nextClientCounter : Nat;
+      var nextLeadCounter : Nat;
+      var nextPropertyCounter : Nat
+    };
+  stable propertyAlerts :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PropertyAlert__380359722]];
+      var elementIndex : Nat__1040412405
+    };
+  stable propertyEnquiries :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PropertyEnquiry__908993580]];
+      var elementIndex : Nat__1040412405
+    };
+  stable propertyIntelligence_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PropertyIntelligence__822294623]];
+      var elementIndex : Nat__1040412405
+    };
+  stable propertyListings :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PropertyListing__248911652]];
+      var elementIndex : Nat__1040412405
+    };
+  stable propertyViews :
+    {var root : Node__1000929467<Text, Nat>; var size : Nat__1040412405};
+  stable var proposals : [Proposal__521768281];
+  stable quoteList :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?QuoteRequest__431054610]];
+      var elementIndex : Nat__1040412405
+    };
+  stable referrals :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Referral__159659315]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var responseTimeBadgeText : Text;
+  stable var reviews : [ReviewRecord__9225060];
+  stable richSecurityEvents_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?RichSecurityEvent__396541125]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var rsvps : [RSVP__105169714];
+  stable satisfactionRatings :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?SatisfactionRating__461778196]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var secEventCounter : Nat;
+  stable secStaffMembers :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?StaffMember__985834694]];
+      var elementIndex : Nat__1040412405
+    };
+  stable secState :
+    {
+      var auditCounter : Nat;
+      var sessionCounter : Nat;
+      var staffCounter : Nat
+    };
+  stable secState2_ :
+    {
+      var nextAuditCounter : Nat;
+      var nextRichEventCounter : Nat;
+      var threatsBlockedCount : Nat
+    };
+  stable securityApiState_ :
+    {
+      var nextCanaryCounter : Nat;
+      var nextDeviceCounter : Nat;
+      var nextThreatCounter : Nat
+    };
+  stable var securityEvents : [SecurityEvent__338469793];
+  stable serviceMap :
+    {
+      var root : Node__1000929467<Nat, Service__311281967>;
+      var size : Nat__1040412405
+    };
+  stable sessions :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Session__107932720]];
+      var elementIndex : Nat__1040412405
+    };
+  stable siteVisits :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?SiteVisit__146388075]];
+      var elementIndex : Nat__1040412405
+    };
+  stable societyReviews :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?SocietyReview__64899276]];
+      var elementIndex : Nat__1040412405
+    };
+  stable staffMembers :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AdminStaffMember__355412392]];
+      var elementIndex : Nat__1040412405
+    };
+  stable staffState_ :
+    {var lockdownActive : Bool; var nextAuditId : Nat; var nextEventId : Nat};
+  stable state :
+    {
+      var newsCacheData : [NewsArticle__454649990];
+      var newsCacheTime : Int;
+      var nextLeadQualId : Nat;
+      var nextPropertyAlertId : Nat;
+      var nextReferralId : Nat;
+      var nextVisitRequestId : Nat;
+      var visitorCount : Nat
+    };
+  stable submissionList :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ServiceSubmission__271587168]];
+      var elementIndex : Nat__1040412405
+    };
+  stable supportList :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?SupportForm__19137679]];
+      var elementIndex : Nat__1040412405
+    };
+  stable threatIntel_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ThreatIntelEntry__1066105229]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var totalChatCount : Nat;
+  stable tutorialCompletions :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?TutorialCompletion__405505959]];
+      var elementIndex : Nat__1040412405
+    };
+  stable tutorialState :
+    {var nextTutorialStepId : Nat; var nextTutorialSuggestionId : Nat};
+  stable tutorialSteps :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?TutorialStep__641602042]];
+      var elementIndex : Nat__1040412405
+    };
+  stable tutorialSuggestions :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?TutorialSuggestion__1032445214]];
+      var elementIndex : Nat__1040412405
+    };
+  stable vendorJobs_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?VendorJob__1032492001]];
+      var elementIndex : Nat__1040412405
+    };
+  stable vendorState_ :
+    {var nextJobCounter : Nat; var nextVendorCounter : Nat};
+  stable vendors_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Vendor__717819561]];
+      var elementIndex : Nat__1040412405
+    };
+  stable visitRequests :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?VisitRequest__595980542]];
+      var elementIndex : Nat__1040412405
+    }
+}, {
+  stable OTP_EXPIRY_NS : Int;
+  stable OWNER_PASSWORD_HASH : Text;
+  stable OWNER_USERNAME : Text;
+  stable SESSION_TIMEOUT_NS : Int;
+  stable academyState_ :
+    {
+      var nextCourseCounter : Nat;
+      var nextEnrollmentCounter : Nat;
+      var nextLessonCounter : Nat
+    };
+  stable activeVisitors :
+    {var root : Node__918630472<Text>; var size : Nat__1040412405};
+  stable adminStaffMembers :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AdminStaffMember__355412392]];
+      var elementIndex : Nat__1040412405
+    };
+  stable agentActivities :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AgentActivity__481892705]];
+      var elementIndex : Nat__1040412405
+    };
+  stable aiActivityLog :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AIActivityEntry__660331782]];
+      var elementIndex : Nat__1040412405
+    };
+  stable aiAgents :
+    {
+      var root : Node__1000929467<Text, AIAgent__1053902737>;
+      var size : Nat__1040412405
+    };
+  stable aiDailyStats :
+    {
+      var chatMessagesProcessed : Nat;
+      var complianceChecks : Nat;
+      var contentGenerated : Nat;
+      var documentsAnalyzed : Nat;
+      var interactions : Nat;
+      var lastResetDate : Text;
+      var leadsProcessed : Nat;
+      var propertiesAdded : Nat
+    };
+  stable aiDecisions_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AiDecision__738020404]];
+      var elementIndex : Nat__1040412405
+    };
+  stable aiInsights :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AIInsight__784829903]];
+      var elementIndex : Nat__1040412405
+    };
+  stable aiSystemConfigState : {var cfg : AISystemConfig__317551566};
+  stable anniversaryReminders :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AnniversaryReminder__500113005]];
+      var elementIndex : Nat__1040412405
+    };
+  stable announcements :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Announcement__674333181]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var appNotifications : [AppNotification__929414022];
+  stable appointments :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Appointment__384223623]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var auctionCounter : Nat;
+  stable auctionListings :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AuctionListing__10265339]];
+      var elementIndex : Nat__1040412405
+    };
+  stable auctionState_ : {var nextAuctionCounter : Nat};
+  stable auctions_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Auction__869664979]];
+      var elementIndex : Nat__1040412405
+    };
+  stable auditLog :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AuditEntry__849002978]];
+      var elementIndex : Nat__1040412405
+    };
+  stable auditLog_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AuditEntry__648544157]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var autoArchiveDays : Nat;
+  stable blogPosts :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?BlogPost__543622485]];
+      var elementIndex : Nat__1040412405
+    };
+  stable bookingState_ : {var nextBookingCounter : Nat};
+  stable bookings_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Booking__628731632]];
+      var elementIndex : Nat__1040412405
+    };
+  stable briefingState_ :
+    {
+      var nextAccessLogCounter : Nat;
+      var nextBriefingCounter : Nat;
+      var nextDecisionCounter : Nat
+    };
+  stable builderProfiles :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?BuilderProfile__131094857]];
+      var elementIndex : Nat__1040412405
+    };
+  stable builderTrustRecords_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?BuilderTrustRecord__1034432718]];
+      var elementIndex : Nat__1040412405
+    };
+  stable callbackList :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?CallbackRequest__836999675]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var campaigns : [Campaign__370329394];
+  stable canaryTokens_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?CanaryToken__991280092]];
+      var elementIndex : Nat__1040412405
+    };
+  stable chatTopics :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?(Text, Nat)]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var clients : [Client__171211559];
+  stable var commissionInvoices : [CommissionInvoice__106746891];
+  stable commissionState_ : {var nextCommissionCounter : Nat};
+  stable commissions_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?CommissionRecord__870123441]];
+      var elementIndex : Nat__1040412405
+    };
+  stable complaintTickets :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ComplaintTicket__266511644]];
+      var elementIndex : Nat__1040412405
+    };
+  stable courses_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Course__727470012]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var crmAppointments : [CrmAppointment__228900809];
+  stable csrEntries :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?CsrImpactEntry__567122423]];
+      var elementIndex : Nat__1040412405
+    };
+  stable dailyBriefings_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?DailyBriefing__322167134]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var dashboardStats : [DashboardStat__1009172187];
+  stable var dealCounterDesc : Text;
+  stable var dealCounterUpdatedAt : Int;
+  stable var dealCounterValue : Nat;
+  stable dealNotes_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?DealNote__407018497]];
+      var elementIndex : Nat__1040412405
+    };
+  stable dealState_ : {var nextDealCounter : Nat; var nextNoteCounter : Nat};
+  stable deals :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Deal__986256399]];
+      var elementIndex : Nat__1040412405
+    };
+  stable deals_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Deal__384601022]];
+      var elementIndex : Nat__1040412405
+    };
+  stable deviceRecords_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?DeviceRecord__314191154]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var dynamicAuctions :
+    [{
+       bidCount : Nat;
+       currentBid : Nat;
+       description : Text;
+       endsAt : Int;
+       features : [Text];
+       id : Text;
+       location : Text;
+       minimumBid : Nat;
+       propertyType : Text;
+       startPrice : Nat;
+       status : Text;
+       title : Text;
+       watchCount : Nat
+     }];
+  stable enrollments_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Enrollment__955523818]];
+      var elementIndex : Nat__1040412405
+    };
+  stable eventBookings :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?EventBooking__875735667]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var events_ : [Event___237379394];
+  stable exchangeListings_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ExchangeListing__93197306]];
+      var elementIndex : Nat__1040412405
+    };
+  stable exchangeState_ :
+    {var nextEnquiryCounter : Nat; var nextListingCounter : Nat};
+  stable feedbackList :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Feedback__217957820]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var financialMetrics : [FinancialMetric__524615748];
+  stable interactions :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ChatInteraction__98517394]];
+      var elementIndex : Nat__1040412405
+    };
+  stable invoices :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Invoice__772203955]];
+      var elementIndex : Nat__1040412405
+    };
+  stable jantriRates_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?JantriRate__278964754]];
+      var elementIndex : Nat__1040412405
+    };
+  stable leadNurtureReminders :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?LeadNurtureReminder__759947521]];
+      var elementIndex : Nat__1040412405
+    };
+  stable leadQualifications :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?LeadQualification__399471179]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var leads : [Lead__21276013];
+  stable var legacyAuctionCounter : Nat;
+  stable var legalDocCounter : Nat;
+  stable var legalDocs : [LegalDoc__116755978];
+  stable localityDemand_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?LocalityDemand__65538240]];
+      var elementIndex : Nat__1040412405
+    };
+  stable loginAttempts :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?LoginAttemptRecord__580651343]];
+      var elementIndex : Nat__1040412405
+    };
+  stable marketDataCache :
+    {
+      var interestRates : [InterestRateEntry__744275927];
+      var jantriUpdate : Text;
+      var lastUpdated : Text;
+      var rbiNote : Text
+    };
+  stable var marketDataCounter : Nat;
+  stable var marketDataPoints : [MarketDataPoint__363669455];
+  stable marketReports :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?MarketReport__189651801]];
+      var elementIndex : Nat__1040412405
+    };
+  stable mediaPosts_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?MediaPost__739830764]];
+      var elementIndex : Nat__1040412405
+    };
+  stable mediaState_ : {var nextPostCounter : Nat};
+  stable moreInfoList :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?MoreInfoRequest__503451381]];
+      var elementIndex : Nat__1040412405
+    };
+  stable musicArtists :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?MusicArtist__135946405]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newAuditRecords_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AuditRecord__979315651]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newBiometricEnrollments_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?BiometricEnrollment__69235730]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newClients_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Client__704034099]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newLeads_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Lead__849419588]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newObserverCodes_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ObserverCodeRecord__720556695]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newOtpRecords_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?OtpRecord__835494947]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newProperties_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Property__612470078]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newSecEvents_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?SecurityEvent__169044105]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newSessions_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Session__983796129]];
+      var elementIndex : Nat__1040412405
+    };
+  stable newStaff_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Staff__191166072]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var nextCampaignId : Nat;
+  stable var nextClientId : Nat;
+  stable var nextCrmAppointmentId : Nat;
+  stable var nextEnquiryId : Nat;
+  stable var nextEventId : Nat;
+  stable var nextFormId : Nat;
+  stable var nextInteractionId : Nat;
+  stable var nextInvoiceId : Nat;
+  stable var nextLeadId : Nat;
+  stable var nextNotificationId : Nat;
+  stable var nextProposalId : Nat;
+  stable var nextRSVPId : Nat;
+  stable var nextReviewId : Nat;
+  stable var nextSubmissionId : Nat;
+  stable notifications :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Notification__879889657]];
+      var elementIndex : Nat__1040412405
+    };
+  stable observerAccessLogs_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ObserverAccessLog__842138072]];
+      var elementIndex : Nat__1040412405
+    };
+  stable observerCodeInfos_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ObserverCodeInfo__884371497]];
+      var elementIndex : Nat__1040412405
+    };
+  stable observerCodes :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ObserverCode__261513817]];
+      var elementIndex : Nat__1040412405
+    };
+  stable observerState : {var nextObserverCodeId : Nat};
+  stable otpRecords :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?OTPRecord__170252474]];
+      var elementIndex : Nat__1040412405
+    };
+  stable partnerApplications :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PartnerApplication__103802231]];
+      var elementIndex : Nat__1040412405
+    };
+  stable priceHistory :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PriceHistoryEntry__885564409]];
+      var elementIndex : Nat__1040412405
+    };
+  stable priceHistory_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PriceHistoryEntry__982004485]];
+      var elementIndex : Nat__1040412405
+    };
+  stable propIntelState_ : {var nextPriceHistoryCounter : Nat};
+  stable propState_ :
+    {
+      var nextClientCounter : Nat;
+      var nextLeadCounter : Nat;
+      var nextPropertyCounter : Nat
+    };
+  stable propertyAlerts :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PropertyAlert__380359722]];
+      var elementIndex : Nat__1040412405
+    };
+  stable propertyEnquiries :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PropertyEnquiry__908993580]];
+      var elementIndex : Nat__1040412405
+    };
+  stable propertyIntelligence_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PropertyIntelligence__822294623]];
+      var elementIndex : Nat__1040412405
+    };
+  stable propertyListings :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?PropertyListing__248911652]];
+      var elementIndex : Nat__1040412405
+    };
+  stable propertyViews :
+    {var root : Node__1000929467<Text, Nat>; var size : Nat__1040412405};
+  stable var proposals : [Proposal__521768281];
+  stable quoteList :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?QuoteRequest__431054610]];
+      var elementIndex : Nat__1040412405
+    };
+  stable referrals :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Referral__159659315]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var responseTimeBadgeText : Text;
+  stable var reviews : [ReviewRecord__9225060];
+  stable richSecurityEvents_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?RichSecurityEvent__396541125]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var rsvps : [RSVP__105169714];
+  stable satisfactionRatings :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?SatisfactionRating__461778196]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var secEventCounter : Nat;
+  stable secStaffMembers :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?StaffMember__985834694]];
+      var elementIndex : Nat__1040412405
+    };
+  stable secState :
+    {
+      var auditCounter : Nat;
+      var sessionCounter : Nat;
+      var staffCounter : Nat
+    };
+  stable secState2_ :
+    {
+      var nextAuditCounter : Nat;
+      var nextRichEventCounter : Nat;
+      var threatsBlockedCount : Nat
+    };
+  stable securityApiState_ :
+    {
+      var nextCanaryCounter : Nat;
+      var nextDeviceCounter : Nat;
+      var nextThreatCounter : Nat
+    };
+  stable var securityEvents : [SecurityEvent__338469793];
+  stable serviceMap :
+    {
+      var root : Node__1000929467<Nat, Service__311281967>;
+      var size : Nat__1040412405
+    };
+  stable sessions :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Session__107932720]];
+      var elementIndex : Nat__1040412405
+    };
+  stable siteVisits :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?SiteVisit__146388075]];
+      var elementIndex : Nat__1040412405
+    };
+  stable societyReviews :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?SocietyReview__64899276]];
+      var elementIndex : Nat__1040412405
+    };
+  stable staffMembers :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?AdminStaffMember__355412392]];
+      var elementIndex : Nat__1040412405
+    };
+  stable staffState_ :
+    {var lockdownActive : Bool; var nextAuditId : Nat; var nextEventId : Nat};
+  stable state :
+    {
+      var newsCacheData : [NewsArticle__454649990];
+      var newsCacheTime : Int;
+      var nextLeadQualId : Nat;
+      var nextPropertyAlertId : Nat;
+      var nextReferralId : Nat;
+      var nextVisitRequestId : Nat;
+      var visitorCount : Nat
+    };
+  stable submissionList :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ServiceSubmission__271587168]];
+      var elementIndex : Nat__1040412405
+    };
+  stable supportList :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?SupportForm__19137679]];
+      var elementIndex : Nat__1040412405
+    };
+  stable threatIntel_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ThreatIntelEntry__1066105229]];
+      var elementIndex : Nat__1040412405
+    };
+  stable var totalChatCount : Nat;
+  stable tutorialCompletions :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?TutorialCompletion__405505959]];
+      var elementIndex : Nat__1040412405
+    };
+  stable tutorialState :
+    {var nextTutorialStepId : Nat; var nextTutorialSuggestionId : Nat};
+  stable tutorialSteps :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?TutorialStep__641602042]];
+      var elementIndex : Nat__1040412405
+    };
+  stable tutorialSuggestions :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?TutorialSuggestion__1032445214]];
+      var elementIndex : Nat__1040412405
+    };
+  stable vendorJobs_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?VendorJob__1032492001]];
+      var elementIndex : Nat__1040412405
+    };
+  stable vendorState_ :
+    {var nextJobCounter : Nat; var nextVendorCounter : Nat};
+  stable vendors_ :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?Vendor__717819561]];
+      var elementIndex : Nat__1040412405
+    };
+  stable visitRequests :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?VisitRequest__595980542]];
+      var elementIndex : Nat__1040412405
+    }
+});

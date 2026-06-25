@@ -1,0 +1,2247 @@
+type VisitRequest = 
+ record {
+   createdAt: int;
+   customerEmail: text;
+   customerName: text;
+   customerPhone: text;
+   id: text;
+   preferredDate: text;
+   preferredTime: text;
+   propertyId: text;
+   propertyTitle: text;
+   status: text;
+   visitType: text;
+ };
+type VendorJobStatus = text;
+type VendorJob = 
+ record {
+   amount: float64;
+   completedAt: opt Timestamp;
+   createdAt: Timestamp;
+   id: text;
+   jobType: text;
+   propertyId: text;
+   status: VendorJobStatus;
+   vendorId: text;
+ };
+type Vendor = 
+ record {
+   category: text;
+   contactName: text;
+   createdAt: Timestamp;
+   email: text;
+   id: text;
+   isActive: bool;
+   name: text;
+   notes: text;
+   phone: text;
+   rating: float64;
+   totalJobs: nat;
+ };
+type TutorialSuggestion = 
+ record {
+   appKey: text;
+   createdAt: int;
+   id: nat;
+   mode: text;
+   reason: text;
+   status: text;
+   stepIndex: nat;
+   suggestedContent: text;
+ };
+type TutorialStep = 
+ record {
+   appKey: text;
+   content: text;
+   id: nat;
+   isActive: bool;
+   mode: text;
+   order: nat;
+   stepIndex: nat;
+   targetElement: opt text;
+   title: text;
+ };
+type TutorialCompletion = 
+ record {
+   appKey: text;
+   completedAt: int;
+   mode: text;
+   skipped: bool;
+   userId: text;
+ };
+type TutorialApp = 
+ record {
+   appKey: text;
+   appName: text;
+   fullStepCount: nat;
+   quickStepCount: nat;
+ };
+type Timestamp = int;
+type TimeSlot = 
+ record {
+   bookedSlots: vec text;
+   date: text;
+   slots: vec text;
+ };
+type ThreatIntelEntry = 
+ record {
+   detectedAt: int;
+   id: text;
+   ipAddress: text;
+   isBlocked: bool;
+   reason: text;
+   severity: text;
+ };
+type SupportForm = 
+ record {
+   email: text;
+   id: text;
+   isRead: bool;
+   message: text;
+   name: text;
+   phone: text;
+   "service": text;
+   timestamp: int;
+ };
+type StaffRole = 
+ variant {
+   admin;
+   agent;
+   manager;
+   viewer;
+ };
+type Staff = 
+ record {
+   biometricEnrolled: bool;
+   biometricPublicKey: text;
+   createdAt: int;
+   deviceId: text;
+   email: text;
+   firstLoginDone: bool;
+   id: text;
+   isActive: bool;
+   isSuspended: bool;
+   lastLogin: int;
+   lockedUntil: int;
+   loginAttempts: nat;
+   mobileNumber: text;
+   name: text;
+   passwordHash: text;
+   role: StaffRole;
+   sessionToken: text;
+ };
+type SocietyReview = 
+ record {
+   amenities: nat;
+   createdAt: int;
+   id: text;
+   isApproved: bool;
+   maintenance: nat;
+   management: nat;
+   rating: nat;
+   review: text;
+   reviewerAlias: text;
+   security: nat;
+   societyName: text;
+ };
+type SiteVisit = 
+ record {
+   clientName: text;
+   clientPhone: text;
+   createdAt: int;
+   id: text;
+   notes: text;
+   propertyAddress: text;
+   scheduledDate: int;
+   scheduledTime: text;
+   status: text;
+ };
+type Session = 
+ record {
+   createdAt: int;
+   deviceId: text;
+   ipAddress: text;
+   isActive: bool;
+   lastActivity: int;
+   sessionId: text;
+   staffId: text;
+   userAgent: text;
+ };
+type ServiceSubmission = 
+ record {
+   fields: vec record {
+                 text;
+                 text;
+               };
+   formType: text;
+   id: nat;
+   indemnityAccepted: bool;
+   innerPage: text;
+   isRead: bool;
+   serviceCategory: text;
+   submitterEmail: text;
+   submitterName: text;
+   submitterPhone: text;
+   timestamp: int;
+ };
+type Service = 
+ record {
+   description: text;
+   icon: text;
+   id: nat;
+   name: text;
+   slug: text;
+ };
+type SecurityHealthReport = 
+ record {
+   activeSessions: nat;
+   canaryTriggered: bool;
+   failedLoginsLast24h: nat;
+   generatedAt: int;
+   lockoutsLast24h: nat;
+   overallScore: nat;
+   pendingBiometrics: nat;
+   recommendations: vec text;
+   suspendedAccounts: nat;
+   threatsBlocked: nat;
+ };
+type SecurityEventType = 
+ variant {
+   ANOMALY_DETECTED;
+   BIOMETRIC_ENROLL;
+   CANARY_TRIGGERED;
+   EMERGENCY_LOCKDOWN;
+   FORCE_LOGOUT;
+   LOCKOUT;
+   LOGIN_FAIL;
+   LOGIN_SUCCESS;
+   OTP_FAIL;
+   OTP_SENT;
+ };
+type SecurityEvent = 
+ record {
+   details: text;
+   deviceId: text;
+   eventType: SecurityEventType;
+   id: nat;
+   ipAddress: text;
+   staffId: text;
+   timestamp: int;
+ };
+type SatisfactionRating = 
+ record {
+   enquiryId: text;
+   feedback: text;
+   id: text;
+   rating: nat;
+   submittedAt: int;
+ };
+type RichSecurityEvent = 
+ record {
+   aiTierId: text;
+   description: text;
+   eventType: text;
+   id: text;
+   resolved: bool;
+   resolvedAt: opt int;
+   severity: text;
+   sourceIp: text;
+   timestamp: int;
+ };
+type ReviewRecord = 
+ record {
+   id: nat;
+   platform: text;
+   rating: nat;
+   responded: bool;
+   responseText: opt text;
+   reviewDate: int;
+   reviewText: text;
+   reviewerName: text;
+   sentiment: text;
+ };
+type Referral = 
+ record {
+   clicks: nat;
+   code: text;
+   createdAt: int;
+   enquiries: vec text;
+   id: text;
+   referrerEmail: text;
+   referrerName: text;
+   referrerPhone: text;
+ };
+type RSVP = 
+ record {
+   email: text;
+   eventId: nat;
+   guestCount: nat;
+   guestName: text;
+   id: nat;
+   phone: text;
+   status: text;
+ };
+type QuoteRequest = 
+ record {
+   email: text;
+   id: text;
+   isRead: bool;
+   message: text;
+   name: text;
+   pageName: text;
+   phone: text;
+   "service": text;
+   timestamp: int;
+ };
+type Proposal = 
+ record {
+   amount: nat;
+   clientName: text;
+   createdAt: int;
+   expiresAt: int;
+   id: nat;
+   notes: text;
+   propertyTitle: text;
+   status: text;
+ };
+type PropertyPerformance = 
+ record {
+   alerts: nat;
+   enquiries: nat;
+   location: text;
+   price: nat;
+   propertyId: text;
+   title: text;
+   views: nat;
+ };
+type PropertyListing = 
+ record {
+   action: text;
+   address: text;
+   agencyName: text;
+   agencyPhone: text;
+   amenities: vec text;
+   bhk: text;
+   city: text;
+   description: text;
+   facing: text;
+   floorNo: nat;
+   furnishing: text;
+   id: text;
+   images: vec text;
+   listedDate: text;
+   location: text;
+   mapLink: text;
+   ownerEmail: text;
+   ownerName: text;
+   ownerPhone: text;
+   possession: text;
+   price: nat;
+   priceDisplay: text;
+   propertyType: text;
+   societyName: text;
+   sourceTag: text;
+   sqft: nat;
+   title: text;
+ };
+type PropertyIntelligence = 
+ record {
+   amenities: vec text;
+   builderId: text;
+   builderTrustScore: nat;
+   investmentGrade: InvestmentGrade;
+   latitude: float64;
+   longitude: float64;
+   negotiationMax: nat;
+   negotiationMin: nat;
+   propertyId: text;
+   reraNumber: text;
+   updatedAt: int;
+ };
+type PropertyEnquiry = 
+ record {
+   agencyName: text;
+   agencyPhone: text;
+   contactedAt: opt int;
+   customerEmail: text;
+   customerMessage: text;
+   customerName: text;
+   customerPhone: text;
+   id: text;
+   notes: text;
+   ownerEmail: text;
+   ownerName: text;
+   ownerPhone: text;
+   preferredTime: text;
+   propertyAddress: text;
+   propertyBhk: text;
+   propertyId: text;
+   propertyPrice: text;
+   propertySqft: nat;
+   propertyTitle: text;
+   propertyType: text;
+   sourceTag: text;
+   status: text;
+   submittedAt: int;
+   visitDate: text;
+ };
+type PropertyAlert = 
+ record {
+   action: text;
+   bhk: text;
+   createdAt: int;
+   email: text;
+   id: text;
+   location: text;
+   maxBudget: nat;
+   name: text;
+   phone: text;
+   propertyType: text;
+ };
+type Property = 
+ record {
+   amenities: vec text;
+   area: text;
+   areaRaw: nat;
+   builderName: text;
+   createdAt: int;
+   description: text;
+   enquiries: nat;
+   id: text;
+   images: vec text;
+   listingDate: int;
+   location: text;
+   price: text;
+   priceRaw: nat;
+   propertyType: text;
+   reraNumber: opt text;
+   status: text;
+   tags: vec text;
+   title: text;
+   "type": text;
+   views: nat;
+ };
+type PriceHistoryEntry = 
+ record {
+   note: text;
+   price: nat;
+   propertyId: text;
+   recordedAt: int;
+   recordedBy: text;
+ };
+type PartnerApplication = 
+ record {
+   areas: text;
+   company: text;
+   createdAt: int;
+   email: text;
+   experience: text;
+   id: text;
+   name: text;
+   notes: text;
+   phone: text;
+   status: text;
+ };
+type ObserverCodeRecord = 
+ record {
+   code: text;
+   createdBy: text;
+   expiresAt: int;
+   isRevoked: bool;
+   observerLabel: text;
+   scope: text;
+   singleUse: bool;
+   used: bool;
+ };
+type ObserverCodeInfo = 
+ record {
+   active: bool;
+   code: text;
+   codeLabel: text;
+   createdAt: int;
+   createdBy: text;
+   expiresAt: opt int;
+   scope: vec text;
+   singleUse: bool;
+   used: bool;
+   usedAt: opt int;
+   usedBy: opt text;
+ };
+type ObserverCode = 
+ record {
+   code: text;
+   createdAt: int;
+   createdBy: text;
+   expiresAt: opt int;
+   expiryType: text;
+   id: nat;
+   isActive: bool;
+   labelText: text;
+   lastUsedAt: opt int;
+   permissions: vec text;
+   useCount: nat;
+ };
+type ObserverAccessLog = 
+ record {
+   code: text;
+   id: text;
+   scope: text;
+   sessionId: text;
+   timestamp: int;
+ };
+type Notification = 
+ record {
+   createdAt: int;
+   id: text;
+   isRead: bool;
+   message: text;
+   relatedId: opt text;
+   title: text;
+   "type": text;
+ };
+type NewsArticle = 
+ record {
+   imageUrl: text;
+   publishedAt: text;
+   source: text;
+   summary: text;
+   title: text;
+   url: text;
+ };
+type MusicArtist = 
+ record {
+   available: bool;
+   bio: text;
+   bookingContact: text;
+   genre: text;
+   id: text;
+   instagramUrl: text;
+   name: text;
+   specialties: vec text;
+   youtubeUrl: text;
+ };
+type MoreInfoRequest = 
+ record {
+   email: text;
+   id: text;
+   isRead: bool;
+   name: text;
+   pageName: text;
+   question: text;
+   "service": text;
+   timestamp: int;
+ };
+type MediaPost = 
+ record {
+   author: text;
+   category: MediaCategory;
+   content: text;
+   createdAt: Timestamp;
+   id: text;
+   isPublished: bool;
+   publishedAt: opt Timestamp;
+   tags: vec text;
+   title: text;
+   views: nat;
+ };
+type MediaCategory = text;
+type MarketReport = 
+ record {
+   content: text;
+   createdAt: int;
+   id: text;
+   isPublished: bool;
+   month: text;
+   title: text;
+   year: text;
+ };
+type MarketDataPoint = 
+ record {
+   avgPricePerSqft: nat;
+   id: text;
+   locality: text;
+   month: nat;
+   propertyType: text;
+   trend: text;
+   year: nat;
+ };
+type LocalityDemand = 
+ record {
+   enquiryCount: nat;
+   lastUpdated: int;
+   locality: text;
+   viewCount: nat;
+ };
+type ListingStatus = text;
+type Lesson = 
+ record {
+   content: text;
+   courseId: text;
+   duration: nat;
+   id: text;
+   order: nat;
+   title: text;
+   videoUrl: opt text;
+ };
+type LegalDoc = 
+ record {
+   category: text;
+   createdAt: int;
+   docStatus: text;
+   id: text;
+   riskScore: nat;
+   signedBy: vec text;
+   title: text;
+   updatedAt: int;
+   version: nat;
+ };
+type Lead__1 = 
+ record {
+   assignedTo: text;
+   createdAt: int;
+   email: text;
+   estimatedValue: nat;
+   id: nat;
+   name: text;
+   notes: text;
+   phone: text;
+   score: text;
+   "service": text;
+   source: text;
+   stage: text;
+   updatedAt: int;
+ };
+type LeadQualification = 
+ record {
+   budget: text;
+   createdAt: int;
+   id: text;
+   leadScore: text;
+   location: text;
+   propertyType: text;
+   sessionId: text;
+ };
+type LeadNurtureReminder = 
+ record {
+   id: text;
+   isDismissed: bool;
+   lastContactedAt: int;
+   leadId: text;
+   leadName: text;
+   phone: text;
+   reminderDays: nat;
+   "service": text;
+ };
+type Lead = 
+ record {
+   assignedTo: text;
+   budget: text;
+   createdAt: int;
+   email: text;
+   followUpDate: opt int;
+   heatScore: nat;
+   id: text;
+   interest: text;
+   lastContact: opt int;
+   location: text;
+   name: text;
+   notes: text;
+   phone: text;
+   propertyType: text;
+   score: nat;
+   source: text;
+   stage: text;
+   status: text;
+   tags: vec text;
+ };
+type JantriRate = 
+ record {
+   area: text;
+   effectiveFrom: text;
+   ratePerSqFt: nat;
+   updatedAt: int;
+ };
+type Invoice = 
+ record {
+   clientEmail: text;
+   clientName: text;
+   clientPhone: text;
+   createdAt: int;
+   id: text;
+   invoiceNumber: text;
+   notes: text;
+   "service": text;
+   status: text;
+   taxAmount: float64;
+   totalAmount: float64;
+ };
+type InvestmentGrade = 
+ variant {
+   avoid;
+   buy;
+   hold;
+ };
+type InterestRateEntry = 
+ record {
+   bank: text;
+   rate: float64;
+ };
+type FormStats = 
+ record {
+   todayCallbacks: nat;
+   todayFeedback: nat;
+   todayQuotes: nat;
+   todaySupport: nat;
+   totalCallbacks: nat;
+   totalFeedback: nat;
+   totalMoreInfo: nat;
+   totalQuotes: nat;
+   totalSupport: nat;
+   unreadCallbacks: nat;
+   unreadFeedback: nat;
+   unreadMoreInfo: nat;
+   unreadQuotes: nat;
+   unreadSupport: nat;
+ };
+type FinancialMetric = 
+ record {
+   averageDealSize: nat;
+   closedDeals: nat;
+   conversionRate: nat;
+   newLeads: nat;
+   period: text;
+   totalCommissions: nat;
+   totalRevenue: nat;
+ };
+type Feedback = 
+ record {
+   comment: text;
+   id: text;
+   isRead: bool;
+   pageName: text;
+   rating: nat;
+   timestamp: int;
+ };
+type ExchangeListing = 
+ record {
+   askPrice: float64;
+   createdAt: Timestamp;
+   description: text;
+   enquiries: vec ExchangeEnquiry;
+   id: text;
+   propertyId: text;
+   sellerId: text;
+   status: ListingStatus;
+   viewCount: nat;
+ };
+type ExchangeEnquiry = 
+ record {
+   buyerId: text;
+   id: text;
+   listingId: text;
+   message: text;
+   offerPrice: opt float64;
+   timestamp: Timestamp;
+ };
+type Event_ = 
+ record {
+   budget: nat;
+   capacity: nat;
+   confirmedCount: nat;
+   description: text;
+   id: nat;
+   scheduledAt: int;
+   status: text;
+   title: text;
+   "type": text;
+   venue: text;
+ };
+type EventBooking = 
+ record {
+   clientEmail: text;
+   clientName: text;
+   clientPhone: text;
+   createdAt: int;
+   eventDate: text;
+   eventType: text;
+   guestCount: text;
+   id: text;
+   notes: text;
+   status: text;
+   venue: text;
+ };
+type Enrollment = 
+ record {
+   completedAt: opt Timestamp;
+   completedLessons: vec text;
+   courseId: text;
+   enrolledAt: Timestamp;
+   id: text;
+   progress: nat;
+   studentId: text;
+ };
+type DeviceStatus = 
+ variant {
+   blocked;
+   pending;
+   revoked;
+   trusted;
+ };
+type DeviceRecord = 
+ record {
+   deviceId: text;
+   id: text;
+   ipAddress: text;
+   lastSeenAt: int;
+   registeredAt: int;
+   staffId: text;
+   status: DeviceStatus;
+   trustScore: nat;
+   userAgent: text;
+ };
+type Deal__1 = 
+ record {
+   clientEmail: text;
+   clientName: text;
+   clientPhone: text;
+   createdAt: int;
+   followUpDate: opt int;
+   id: text;
+   notes: text;
+   "service": text;
+   stage: text;
+   updatedAt: int;
+ };
+type DealStage = text;
+type DealNote = 
+ record {
+   authorId: text;
+   content: text;
+   dealId: text;
+   id: text;
+   timestamp: Timestamp;
+ };
+type Deal = 
+ record {
+   actualCloseDate: opt Timestamp;
+   agentId: text;
+   clientId: text;
+   commissionAmount: float64;
+   createdAt: Timestamp;
+   documents: vec text;
+   expectedCloseDate: Timestamp;
+   id: text;
+   notes: text;
+   propertyId: text;
+   stage: DealStage;
+   title: text;
+ };
+type DashboardStats = 
+ record {
+   activeAgents: nat;
+   tasksCompletedToday: nat;
+   totalCallbacks: nat;
+   totalEnquiries: nat;
+   totalFeedback: nat;
+   totalInteractions: nat;
+   totalLeads: nat;
+   totalProperties: nat;
+ };
+type DashboardStat = 
+ record {
+   change: int;
+   icon: text;
+   key: text;
+   period: text;
+   statLabel: text;
+   value: nat;
+ };
+type DailyBriefing = 
+ record {
+   createdAt: int;
+   date: text;
+   dealsMovingCount: nat;
+   generatedSummary: text;
+   id: text;
+   marketNews: vec text;
+   newLeadsCount: nat;
+   revenueFigure: float64;
+   securityEventsCount: nat;
+   tasksDueCount: nat;
+ };
+type CsrImpactEntry = 
+ record {
+   category: text;
+   description: text;
+   id: text;
+   metric: text;
+   updatedAt: int;
+   value: nat;
+   year: nat;
+ };
+type CrmAppointment = 
+ record {
+   clientName: text;
+   createdBy: text;
+   durationMins: nat;
+   id: nat;
+   location: text;
+   notes: text;
+   scheduledAt: int;
+   status: text;
+   "type": text;
+ };
+type Course = 
+ record {
+   category: text;
+   createdAt: Timestamp;
+   description: text;
+   duration: nat;
+   enrolledCount: nat;
+   id: text;
+   instructor: text;
+   isPublished: bool;
+   lessons: vec Lesson;
+   title: text;
+ };
+type ComplaintTicket = 
+ record {
+   createdAt: int;
+   customerName: text;
+   id: text;
+   issue: text;
+   notes: text;
+   phone: text;
+   refNumber: text;
+   resolvedAt: opt int;
+   "service": text;
+   status: text;
+ };
+type CommissionStatus = text;
+type CommissionRecord = 
+ record {
+   agentId: text;
+   amount: float64;
+   approvedBy: opt text;
+   createdAt: Timestamp;
+   dealId: text;
+   id: text;
+   paidAt: opt Timestamp;
+   percentage: float64;
+   status: CommissionStatus;
+ };
+type CommissionInvoice = 
+ record {
+   amount: nat;
+   clientName: text;
+   commission: nat;
+   createdAt: int;
+   description: text;
+   dueDate: int;
+   id: nat;
+   paidDate: opt int;
+   serviceType: text;
+   status: text;
+ };
+type CommandResult = 
+ record {
+   data: text;
+   message: text;
+   success: bool;
+ };
+type Client__1 = 
+ record {
+   clientType: text;
+   createdAt: int;
+   email: text;
+   id: nat;
+   lastContact: int;
+   ltv: nat;
+   name: text;
+   notes: text;
+   phone: text;
+   totalDeals: nat;
+   totalValue: nat;
+ };
+type Client = 
+ record {
+   address: text;
+   buyingReadiness: text;
+   createdAt: int;
+   email: text;
+   id: text;
+   joinedAt: int;
+   lastInteraction: opt int;
+   lastUpdated: int;
+   lifetimeValue: nat;
+   name: text;
+   notes: text;
+   phone: text;
+   status: text;
+   totalDeals: nat;
+   totalValue: text;
+   "type": text;
+ };
+type ChatInteraction = 
+ record {
+   botResponse: text;
+   id: nat;
+   messageLength: nat;
+   sentimentTag: text;
+   sessionId: text;
+   timestamp: int;
+   userMessage: text;
+ };
+type CanaryToken = 
+ record {
+   createdAt: int;
+   id: text;
+   isTriggered: bool;
+   tokenLabel: text;
+   tokenValue: text;
+   triggeredAt: opt int;
+   triggeredBy: text;
+ };
+type Campaign = 
+ record {
+   audience: text;
+   channel: text;
+   createdAt: int;
+   id: nat;
+   messagePreview: text;
+   openCount: nat;
+   replyCount: nat;
+   scheduledAt: opt int;
+   sentCount: nat;
+   status: text;
+   title: text;
+ };
+type CallbackRequest = 
+ record {
+   id: text;
+   isRead: bool;
+   name: text;
+   pageName: text;
+   phone: text;
+   "service": text;
+   timestamp: int;
+ };
+type BuilderTrustRecord = 
+ record {
+   builderId: text;
+   builderName: text;
+   complaintCount: nat;
+   deliveryScore: nat;
+   lastUpdated: int;
+   reraFilingCount: nat;
+   trustScore: nat;
+ };
+type BuilderProfile = 
+ record {
+   about: text;
+   completedProjects: nat;
+   contact: text;
+   id: text;
+   isVerified: bool;
+   localities: vec text;
+   name: text;
+   ongoingProjects: nat;
+   rating: float64;
+   registeredSince: text;
+   reraNumber: text;
+ };
+type BookingType = text;
+type BookingStatus = text;
+type Booking = 
+ record {
+   agentId: text;
+   bookingType: BookingType;
+   clientId: text;
+   createdAt: Timestamp;
+   id: text;
+   notes: text;
+   propertyId: text;
+   scheduledAt: Timestamp;
+   status: BookingStatus;
+ };
+type BlogPost = 
+ record {
+   author: text;
+   category: text;
+   content: text;
+   createdAt: int;
+   excerpt: text;
+   id: text;
+   isPublished: bool;
+   metaDescription: text;
+   slug: text;
+   title: text;
+   updatedAt: int;
+ };
+type Bid = 
+ record {
+   amount: float64;
+   auctionId: text;
+   bidderId: text;
+   id: text;
+   isWinning: bool;
+   timestamp: Timestamp;
+ };
+type AuditRecord = 
+ record {
+   action: text;
+   details: text;
+   deviceId: text;
+   id: nat;
+   ipAddress: text;
+   staffId: text;
+   target: text;
+   timestamp: int;
+ };
+type AuditEntry = 
+ record {
+   action: text;
+   actorId: text;
+   details: text;
+   id: text;
+   ipAddress: text;
+   result: text;
+   target: text;
+   timestamp: int;
+ };
+type AuctionStatus = text;
+type AuctionListing = 
+ record {
+   bidCount: nat;
+   currentBid: nat;
+   description: text;
+   endsAt: int;
+   features: vec text;
+   id: text;
+   location: text;
+   minimumBid: nat;
+   propertyType: text;
+   startPrice: nat;
+   status: text;
+   title: text;
+   watchCount: nat;
+ };
+type Auction = 
+ record {
+   bidIncrement: float64;
+   bids: vec Bid;
+   currentBid: float64;
+   description: text;
+   endTime: Timestamp;
+   id: text;
+   propertyId: text;
+   startPrice: float64;
+   startTime: Timestamp;
+   status: AuctionStatus;
+   title: text;
+   winnerId: opt text;
+ };
+type Appointment = 
+ record {
+   clientEmail: text;
+   clientName: text;
+   clientPhone: text;
+   createdAt: int;
+   id: text;
+   notes: text;
+   preferredDate: text;
+   preferredTime: text;
+   "service": text;
+   status: text;
+   "type": text;
+ };
+type AppNotification = 
+ record {
+   appName: text;
+   createdAt: int;
+   id: nat;
+   isRead: bool;
+   message: text;
+   priority: text;
+   targetRole: text;
+   title: text;
+ };
+type Announcement = 
+ record {
+   bgColor: text;
+   createdAt: int;
+   ctaText: text;
+   ctaUrl: text;
+   expiresAt: opt int;
+   id: text;
+   isActive: bool;
+   message: text;
+   scheduledAt: opt int;
+   title: text;
+ };
+type AnniversaryReminder = 
+ record {
+   clientName: text;
+   createdAt: int;
+   email: text;
+   id: text;
+   notes: text;
+   phone: text;
+   reminderDate: text;
+   reminderType: text;
+ };
+type AiDecisionType = 
+ variant {
+   ANOMALY_FLAGGED;
+   BOOKING_CONFIRMED;
+   COMMISSION_CALCULATED;
+   CONTENT_PUBLISHED;
+   FOLLOW_UP_SENT;
+   LEAD_SCORED;
+   MINOR_UI_FIX;
+   OTHER;
+   PROPERTY_PUBLISHED;
+   SECURITY_BLOCKED;
+ };
+type AiDecision = 
+ record {
+   actionTaken: text;
+   agentName: text;
+   confidenceScore: nat;
+   decisionType: AiDecisionType;
+   description: text;
+   id: text;
+   outcome: text;
+   reversalReason: text;
+   reversed: bool;
+   reversedAt: opt int;
+   reversible: bool;
+   timestamp: int;
+ };
+type AgentActivity = 
+ record {
+   action: text;
+   agentId: text;
+   agentName: text;
+   cluster: text;
+   result: text;
+   status: text;
+   timestamp: int;
+ };
+type AdminStaffMember = 
+ record {
+   accessLevel: text;
+   accessSections: vec text;
+   canDelete: bool;
+   canExport: bool;
+   createdAt: int;
+   email: text;
+   id: text;
+   isActive: bool;
+   lastLogin: opt int;
+   loginId: text;
+   name: text;
+   passwordHash: text;
+   phone: text;
+   role: text;
+ };
+type AISystemConfig = 
+ record {
+   activeAgents: nat;
+   activeProvider: text;
+   claudeKeySet: bool;
+   fallbackOrder: vec text;
+   geminiKeySet: bool;
+   openAIKeySet: bool;
+   totalAgents: nat;
+ };
+type AIInsight = 
+ record {
+   agentId: text;
+   content: text;
+   createdAt: text;
+   id: text;
+   priority: text;
+   status: text;
+   title: text;
+ };
+type AIAgent = 
+ record {
+   actionsLog: vec text;
+   category: text;
+   config: text;
+   description: text;
+   id: text;
+   isActive: bool;
+   lastAction: text;
+   name: text;
+   parentId: opt text;
+   tier: text;
+ };
+type AIActivityEntry = 
+ record {
+   actionType: text;
+   agentId: text;
+   agentName: text;
+   count: nat;
+   result: text;
+   timestamp: text;
+ };
+service : {
+  addAIInsight: (insight: AIInsight) -> (bool);
+  addActiveVisitor: (visitorId: text) -> ();
+  addAnniversaryReminder: (clientName: text, phone: text, email: text,
+   reminderDate: text, reminderType: text, notes: text) -> (text);
+  addAnnouncement: (title: text, message: text, ctaText: text, ctaUrl: 
+   text, bgColor: text, scheduledAt: opt int, expiresAt: opt int) -> (
+   text);
+  addAppointment: (clientName: text, clientPhone: text, clientEmail: 
+   text, "type": text, "service": text, preferredDate: text, preferredTime:
+   text, notes: text) -> (text);
+  addBlogPost: (title: text, slug: text, content: text, excerpt: text,
+   category: text, author: text, metaDescription: text) -> (text);
+  addBuilderProfile: (name: text, reraNumber: text, registeredSince: 
+   text, completedProjects: nat, ongoingProjects: nat, rating: float64,
+   localities: vec text, about: text, contact: text) -> (text);
+  addCampaign: (title: text, channel: text, audience: text, messagePreview:
+   text) -> (Campaign);
+  addClient: (name: text, phone: text, email: text, address: text, notes:
+   text) -> (text);
+  addCommissionInvoice: (clientName: text, serviceType: text, amount: 
+   nat, commission: nat, dueDate: int, description: text) ->
+   (CommissionInvoice);
+  addCrmAppointment: (clientName: text, "type": text, scheduledAt: int,
+   durationMins: nat, location: text, notes: text) -> (CrmAppointment);
+  addCrmNotification: (appName: text, title: text, message: text, priority:
+   text, targetRole: text) -> (AppNotification);
+  addDeal: (clientName: text, clientPhone: text, clientEmail: text,
+   "service": text) -> (text);
+  addDealCounterUpdate: (count: nat, desc: text) -> (bool);
+  addDealNote: (dealId: text, authorId: text, content: text) ->
+   (variant {
+      err: text;
+      ok: DealNote;
+    });
+  /// Add an enquiry for a property (frontend-facing convenience wrapper).
+  addEnquiry: (propertyId: text, customerName: text, customerPhone: text,
+   customerEmail: text, customerMessage: text, preferredTime: text,
+   visitDate: text) -> (text);
+  addEvent: (title: text, "type": text, scheduledAt: int, venue: text,
+   capacity: nat, budget: nat, description: text) -> (Event_);
+  addEventBooking: (clientName: text, clientPhone: text, clientEmail: 
+   text, eventType: text, eventDate: text, guestCount: text, venue: text,
+   notes: text) -> (text);
+  addInvoice: (invoiceNumber: text, clientName: text, clientPhone: text,
+   clientEmail: text, "service": text, totalAmount: float64, taxAmount:
+   float64, notes: text) -> (text);
+  addLead: (name: text, phone: text, email: text, interest: text, budget:
+   nat) -> (text);
+  addLeadNote: (id: text, note: text) -> (bool);
+  addLeadNurtureReminder: (leadId: text, leadName: text, phone: text,
+   "service": text, reminderDays: nat) -> (bool);
+  addLegalDoc: (doc:
+   record {
+     category: text;
+     docStatus: text;
+     riskScore: nat;
+     signedBy: vec text;
+     title: text;
+   }) -> (text);
+  addLesson: (courseId: text, title: text, content: text, order: nat) ->
+   (variant {
+      err: text;
+      ok: Lesson;
+    });
+  addMarketData: (d:
+   record {
+     avgPricePerSqft: nat;
+     locality: text;
+     month: nat;
+     propertyType: text;
+     trend: text;
+     year: nat;
+   }) -> (text);
+  addMarketReport: (title: text, month: text, year: text, content: text) ->
+   (text);
+  addMusicArtist: (adminToken: text, name: text, genre: text, bio: text,
+   specialties: vec text, youtubeUrl: text, instagramUrl: text,
+   bookingContact: text, available: bool) -> (text);
+  addNotification: ("type": text, title: text, message: text, relatedId:
+   opt text) -> (text);
+  addPartnerApplication: (name: text, phone: text, email: text, company:
+   text, experience: text, areas: text) -> (text);
+  addPriceHistory: (adminToken: text, propertyId: text, price: nat, date:
+   text, note: text) -> (bool);
+  addProperty: (title: text, propertyType: text, location: text, price: 
+   nat, area: nat, description: text) -> (text);
+  addProposal: (clientName: text, propertyTitle: text, amount: nat,
+   expiresAt: int, notes: text) -> (Proposal);
+  addRSVP: (eventId: nat, guestName: text, phone: text, email: text,
+   guestCount: nat) -> (RSVP);
+  addReview: (platform: text, reviewerName: text, rating: nat, reviewText:
+   text) -> (ReviewRecord);
+  addSiteVisit: (clientName: text, clientPhone: text, propertyAddress: 
+   text, scheduledDate: int, scheduledTime: text, notes: text) -> (text);
+  addStaff: (id: text, name: text, email: text, passwordHash: text, role:
+   StaffRole, mobileNumber: text) -> (bool);
+  addStaffMember: (name: text, role: text, email: text, phone: text, loginId:
+   text, password: text, accessSections: vec text, accessLevel: text,
+   canExport: bool, canDelete: bool) -> (text);
+  addThreatEntry: (ipAddress: text, reason: text, severity: text) ->
+   (variant {
+      err: text;
+      ok: ThreatIntelEntry;
+    });
+  addTutorialStep: (step:
+   record {
+     appId: text;
+     description: text;
+     stepIndex: nat;
+     stepType: text;
+     targetElement: text;
+     title: text;
+   }) -> (text);
+  addVendor: (name: text, category: text, contactName: text, phone: text,
+   email: text) -> (variant {
+                      err: text;
+                      ok: Vendor;
+                    });
+  approveBiometric: (staffId: text, adminPasswordHash: text) -> (bool);
+  approveCommission: (commissionId: text, approvedBy: text) ->
+   (variant {
+      err: text;
+      ok: CommissionRecord;
+    });
+  approveDevice: (staffId: text, deviceId: text) ->
+   (variant {
+      err: text;
+      ok: DeviceRecord;
+    });
+  approveSocietyReview: (id: text) -> (bool);
+  approveTutorialSuggestion: (id: nat) -> (bool);
+  assignLead: (id: text, staffId: text) -> (bool);
+  assignVendorJob: (vendorId: text, propertyId: text, jobType: text, amount:
+   float64) -> (variant {
+                  err: text;
+                  ok: VendorJob;
+                });
+  authenticateFingerprint: (staffId: text, credentialId: text, deviceId:
+   text, ipAddress: text, userAgent: text) ->
+   (record {
+      message: text;
+      ok: bool;
+      role: text;
+      sessionId: text;
+    });
+  authenticateStaff: (username: text, passwordHash: text, deviceId: text,
+   ipAddress: text, userAgent: text) ->
+   (record {
+      message: text;
+      ok: bool;
+      role: text;
+      sessionId: text;
+    });
+  authenticateWithToken: (identifier: text, passwordHash: text) ->
+   (opt record {
+          role: text;
+          staffId: text;
+          token: text;
+        });
+  bulkAddProperties: (adminToken: text, listings: vec PropertyListing) ->
+   (record {
+      added: nat;
+      errors: vec record {
+                    id: text;
+                    reason: text;
+                    rowIndex: nat;
+                  };
+      skipped: nat;
+      updated: nat;
+    });
+  bulkSetTutorialSteps: (appKey: text, mode: text, steps:
+   vec TutorialStep) -> (bool);
+  calculateCommission: (dealId: text, staffId: text, salePrice: float64,
+   percentage: float64) -> (text);
+  clearAllInteractions: () -> ();
+  clearOldAuditEntries: (beforeTimestamp: int) -> (nat);
+  createAuction: (propertyId: text, title: text, startPrice: float64,
+   startTime: int, endTime: int) -> (variant {
+                                       err: text;
+                                       ok: Auction;
+                                     });
+  createBooking: (propertyId: text, clientId: text, agentId: text,
+   bookingType: text, scheduledAt: int) -> (variant {
+                                              err: text;
+                                              ok: Booking;
+                                            });
+  createClient: (name: text, phone: text, email: text, clientType: text,
+   notes: text) -> (text);
+  createCommissionRecord: (dealId: text, agentId: text, amount: float64,
+   percentage: float64) -> (variant {
+                              err: text;
+                              ok: CommissionRecord;
+                            });
+  createCourse: (title: text, description: text, category: text, instructor:
+   text) -> (variant {
+               err: text;
+               ok: Course;
+             });
+  createDailyBriefing: (date: text, newLeadsCount: nat, dealsMovingCount:
+   nat, revenueFigure: float64, securityEventsCount: nat, marketNews:
+   vec text, tasksDueCount: nat, generatedSummary: text) ->
+   (variant {
+      err: text;
+      ok: DailyBriefing;
+    });
+  createDeal: (title: text, propertyId: text, clientId: text) ->
+   (variant {
+      err: text;
+      ok: Deal;
+    });
+  createLead: (name: text, phone: text, email: text, source: text, budget:
+   text, propertyType: text, location: text) -> (text);
+  createListing: (sellerId: text, propertyId: text, askPrice: float64,
+   description: text) -> (variant {
+                            err: text;
+                            ok: ExchangeListing;
+                          });
+  createMediaPost: (title: text, content: text, category: text, author: 
+   text, tags: vec text) -> (variant {
+                               err: text;
+                               ok: MediaPost;
+                             });
+  createObserverCode: (labelText: text, permissions: vec text, expiryType:
+   text, durationHours: opt nat) -> (ObserverCode);
+  createProperty: (title: text, propertyType: text, location: text, price:
+   nat, priceText: text, area: nat, areaText: text, description: text,
+   amenities: vec text, reraNumber: opt text, builderName: text, tags:
+   vec text, images: vec text) -> (text);
+  createReferral: (referrerName: text, referrerPhone: text, referrerEmail:
+   text) -> (text);
+  createSession: (staffId: text, deviceId: text, ipAddress: text, userAgent:
+   text) -> (opt text);
+  createSessionSimple: (staffId: text, deviceInfo: text, ip: text) -> (text);
+  createStaff: (username: text, passwordHash: text, role: StaffRole,
+   mobileNumber: text) -> (record {
+                             id: text;
+                             message: text;
+                             ok: bool;
+                           });
+  createStaffWithRole: (name: text, roleText: text, email: text,
+   passwordHash: text) -> (text);
+  deactivateStaffMember: (targetId: text) -> (bool);
+  deleteAnniversaryReminder: (id: text) -> (bool);
+  deleteAnnouncement: (id: text) -> (bool);
+  deleteBuilderProfile: (id: text) -> (bool);
+  deleteCallback: (id: text) -> (bool);
+  deleteClient: (id: text) -> (bool);
+  deleteComplaint: (id: text) -> (bool);
+  deleteFeedback: (id: text) -> (bool);
+  deleteInteraction: (id: nat) -> (bool);
+  deleteLead: (id: text) -> (bool);
+  deleteMoreInfo: (id: text) -> (bool);
+  deleteObserverCode: (id: nat) -> (bool);
+  deleteProperty: (id: text) -> (bool);
+  deletePropertyAlert: (id: text) -> (bool);
+  deleteQuote: (id: text) -> (bool);
+  deleteReferral: (id: text) -> (bool);
+  deleteSocietyReview: (id: text) -> (bool);
+  deleteSubmission: (id: nat) -> (bool);
+  deleteSupport: (id: text) -> (bool);
+  deleteTutorialStep: (id: nat) -> (bool);
+  dismissLeadReminder: (id: text) -> (bool);
+  emergencyLockdown: (adminPasswordHash: text) -> (bool);
+  emergencyLockdownCount: () -> (nat);
+  enrollBiometric: (staffId: text, publicKey: text) -> (bool);
+  enrollBiometricWithAdmin: (staffId: text, adminToken: text, credentialId:
+   text) -> (bool);
+  enrollFingerprint: (staffId: text, credentialId: text, publicKey: text) ->
+   (bool);
+  enrollStudent: (courseId: text, studentId: text) ->
+   (variant {
+      err: text;
+      ok: Enrollment;
+    });
+  executeCommand: (command: text) -> (CommandResult);
+  fetchLatestNews: () -> (vec NewsArticle);
+  fetchPropertyDataFromPortals: () -> (nat);
+  /// Force logout a specific staff member by staffId (removes all their sessions).
+  forceLogout: (staffId: text) -> (bool);
+  forceLogoutStaff: (staffId: text) -> (bool);
+  generateObserverCode: (observerLabel: text, expiresAt: int, singleUse:
+   bool, scope: text) -> (text);
+  generateObserverCodeInfo: (codeLabel: text, adminToken: text, expiresIn:
+   opt int, singleUse: bool, scope: vec text) -> (text);
+  generateOtp: (staffId: text) -> (bool);
+  getAIAgent: (id: text) -> (opt AIAgent) query;
+  getAIAgentStats: () ->
+   (record {
+      agentsActiveNow: nat;
+      chatMessagesProcessedToday: nat;
+      complianceChecksToday: nat;
+      contentGeneratedToday: nat;
+      documentsAnalyzedToday: nat;
+      leadsProcessedToday: nat;
+      propertiesAddedToday: nat;
+      totalInteractionsToday: nat;
+    }) query;
+  getAIAgents: () -> (vec record {
+                            text;
+                            AIAgent;
+                          }) query;
+  getAIAgentsByParent: (parentId: text) -> (vec record {
+                                                  text;
+                                                  AIAgent;
+                                                }) query;
+  getAIAgentsByTier: (tier: text) -> (vec record {
+                                            text;
+                                            AIAgent;
+                                          }) query;
+  getAIInsights: () -> (vec record {
+                              text;
+                              AIInsight;
+                            }) query;
+  getAIStaffActivityFeed: () -> (vec AIActivityEntry) query;
+  getAISystemConfig: () -> (AISystemConfig) query;
+  getActiveAnnouncements: () -> (vec Announcement) query;
+  getActiveSessionInfos: () -> (vec Session) query;
+  getActiveSessions: () -> (vec Session);
+  getActiveVisitorCount: () -> (nat) query;
+  getAgentActivitiesByCluster: (cluster: text, limit: nat) ->
+   (vec AgentActivity) query;
+  getAgentBookings: (agentId: text) -> (vec Booking) query;
+  getAgentCommissions: (agentId: text) -> (vec CommissionRecord) query;
+  getAiDecision: (decisionId: text) ->
+   (variant {
+      err: text;
+      ok: AiDecision;
+    }) query;
+  getAllAnnouncements: () -> (vec Announcement) query;
+  getAllComplaints: () -> (vec ComplaintTicket) query;
+  getAllDevices: () -> (vec DeviceRecord) query;
+  getAllObserverCodes: () -> (vec ObserverCode) query;
+  getAllReferrals: () -> (vec Referral) query;
+  getAllServices: () -> (vec Service) query;
+  getAllSocietyReviews: () -> (vec SocietyReview) query;
+  getAllStaff: () -> (vec Staff) query;
+  getAllTutorialApps: () -> (vec TutorialApp) query;
+  getAnalyticsSummary: () ->
+   (record {
+      peakHours: vec record {
+                       text;
+                       nat;
+                     };
+      thisMonthEnquiries: nat;
+      thisWeekEnquiries: nat;
+      topBudgetRanges: vec record {
+                             text;
+                             nat;
+                           };
+      topLocations: vec record {
+                          text;
+                          nat;
+                        };
+      topPropertyTypes: vec record {
+                              text;
+                              nat;
+                            };
+      totalEnquiries: nat;
+    }) query;
+  getAnniversaryReminders: () -> (vec AnniversaryReminder) query;
+  getAppointments: () -> (vec Appointment) query;
+  getAuction: (auctionId: text) -> (variant {
+                                      err: text;
+                                      ok: Auction;
+                                    }) query;
+  getAuctionBids: (auctionId: text) -> (vec Bid) query;
+  getAuctionListings: () -> (vec AuctionListing) query;
+  getAuditLog: (limit: nat, offset: nat) -> (vec AuditRecord);
+  getAuditLogByActor: (actorId: text) -> (vec AuditEntry) query;
+  getAuditTrail: (limit: nat) -> (vec AuditRecord);
+  getAutoArchiveDays: () -> (nat) query;
+  getAvailableSlots: (agentId: text, date: text) -> (TimeSlot) query;
+  getAverageRating: () -> (float64) query;
+  getBlogPosts: () -> (vec BlogPost) query;
+  getBotContext: () -> (text) query;
+  getBotResponse: (userMessage: text) -> (text) query;
+  getBriefingByDate: (date: text) -> (opt DailyBriefing) query;
+  getBuilderByRera: (reraNumber: text) -> (opt BuilderProfile) query;
+  getBuilderProfiles: () -> (vec BuilderProfile) query;
+  getBuilderTrust: (builderId: text) -> (opt BuilderTrustRecord) query;
+  getCallbackRequests: () -> (vec CallbackRequest) query;
+  getCampaignById: (campaignId: text) -> (opt Campaign) query;
+  getCampaigns: () -> (vec Campaign) query;
+  getChatAnalytics: () ->
+   (record {
+      topTopics: vec record {
+                       text;
+                       nat;
+                     };
+      totalChats: nat;
+    }) query;
+  getClient: (id: text) -> (opt Client) query;
+  getClientById: (clientId: text) -> (opt Client__1) query;
+  getClients: () -> (vec Client) query;
+  getClientsByStage: (stage: text) -> (vec Client) query;
+  getCommissionInvoices: () -> (vec CommissionInvoice) query;
+  getCommissions: () -> (vec CommissionRecord) query;
+  getCommissionsByStaff: (staffId: text) -> (vec CommissionRecord) query;
+  getComplaint: (refNumber: text) -> (opt ComplaintTicket) query;
+  getCourse: (courseId: text) -> (variant {
+                                    err: text;
+                                    ok: Course;
+                                  }) query;
+  getCrmAppointments: () -> (vec CrmAppointment) query;
+  getCrmDashboardStats: () -> (vec DashboardStat) query;
+  getCrmLeadsByStage: (stage: text) -> (vec Lead__1) query;
+  getCrmNotifications: () -> (vec AppNotification) query;
+  getCsrImpact: () -> (vec CsrImpactEntry) query;
+  getCurrentVisitors: () -> (nat) query;
+  getDashboardStats: () -> (DashboardStats) query;
+  getDeal: (dealId: text) -> (variant {
+                                err: text;
+                                ok: Deal;
+                              }) query;
+  getDealCounter: () ->
+   (record {
+      count: nat;
+      desc: text;
+      updatedAt: int;
+    }) query;
+  getDealNotes: (dealId: text) -> (vec DealNote) query;
+  getDeals: () -> (vec Deal__1) query;
+  getEnrollments: (studentId: text) -> (vec Enrollment) query;
+  getEventBookings: () -> (vec EventBooking) query;
+  getEventById: (eventId: text) -> (opt Event_) query;
+  getEvents: () -> (vec Event_) query;
+  getFeedback: () -> (vec Feedback) query;
+  getFinancialMetrics: () -> (vec FinancialMetric) query;
+  getFormStats: () -> (FormStats) query;
+  getInteractionCount: () -> (nat) query;
+  getInteractionStats: () ->
+   (record {
+      avgMessageLength: nat;
+      needsAttentionCount: nat;
+      todayCount: nat;
+      total: nat;
+    }) query;
+  getInteractions: (offset: nat, limit: nat) -> (vec ChatInteraction) query;
+  getInvoices: () -> (vec Invoice) query;
+  getJantriRate: (area: text) -> (opt JantriRate) query;
+  /// Get KPI summary for the Master Control dashboard.
+  getKPIs: () ->
+   (record {
+      activeDeals: nat;
+      activeSessions: nat;
+      securityEvents: nat;
+      totalAuctions: nat;
+      totalEnquiries: nat;
+      totalLeads: nat;
+      totalProperties: nat;
+      totalStaff: nat;
+    }) query;
+  getLatestBriefing: () -> (opt DailyBriefing) query;
+  getLatestMarketData: () -> (vec MarketDataPoint) query;
+  getLead: (id: text) -> (opt Lead) query;
+  getLeadPipelineStats: () ->
+   (record {
+      closedLost: nat;
+      closedWon: nat;
+      contacted: nat;
+      new: nat;
+      siteVisit: nat;
+    }) query;
+  getLeadQualifications: () -> (vec LeadQualification) query;
+  getLeadStats: () ->
+   (record {
+      coldLeads: nat;
+      hotLeads: nat;
+      total: nat;
+      warmLeads: nat;
+    }) query;
+  getLeads: () -> (vec Lead) query;
+  getLeadsByStage: (stage: text) -> (vec PropertyEnquiry) query;
+  getLegalDoc: (id: text) -> (opt LegalDoc) query;
+  getListing: (listingId: text) ->
+   (variant {
+      err: text;
+      ok: ExchangeListing;
+    }) query;
+  getLiveMarketData: () ->
+   (record {
+      interestRates: vec InterestRateEntry;
+      jantriUpdate: text;
+      lastUpdated: text;
+      rbiNote: text;
+    }) query;
+  getLocalityDemand: () -> (vec LocalityDemand) query;
+  getLocalityDemandFor: (locality: text) -> (opt LocalityDemand) query;
+  getMarketDataByLocality: (locality: text) -> (vec MarketDataPoint) query;
+  getMarketReports: () -> (vec MarketReport) query;
+  getMediaPost: (postId: text) -> (variant {
+                                     err: text;
+                                     ok: MediaPost;
+                                   }) query;
+  getMoreInfoRequests: () -> (vec MoreInfoRequest) query;
+  /// Get the morning briefing (latest daily summary + KPIs).
+  getMorningBriefing: () ->
+   (record {
+      activeDeals: nat;
+      activeSessions: nat;
+      date: text;
+      greeting: text;
+      newEnquiriesToday: nat;
+      securityEventsToday: nat;
+      summary: text;
+      totalLeads: nat;
+      totalProperties: nat;
+    }) query;
+  getMusicArtists: () -> (vec MusicArtist) query;
+  getNewEnquiryCount: () -> (nat) query;
+  getNotifications: () -> (vec Notification) query;
+  getObserverAccessLogs: (code: text) -> (vec ObserverAccessLog) query;
+  getOverdueLeadReminders: () -> (vec LeadNurtureReminder) query;
+  getPartnerApplications: () -> (vec PartnerApplication) query;
+  getPriceHistory: (propertyId: text) -> (vec PriceHistoryEntry) query;
+  getProperties: () -> (vec Property) query;
+  getPropertiesForAdmin: () -> (vec PropertyListing) query;
+  getProperty: (id: text) -> (opt Property) query;
+  getPropertyAlerts: () -> (vec PropertyAlert) query;
+  getPropertyById: (id: text) -> (opt PropertyListing) query;
+  getPropertyCount: () -> (nat) query;
+  getPropertyEnquiries: () -> (vec PropertyEnquiry) query;
+  getPropertyEnquiriesByStatus: (status: text) -> (vec PropertyEnquiry) query;
+  getPropertyEnquiryCount: () -> (nat) query;
+  getPropertyIntelligence: (propertyId: text) ->
+   (opt PropertyIntelligence) query;
+  getPropertyPerformance: () -> (vec PropertyPerformance) query;
+  getPropertyViewCount: (propertyId: text) -> (nat) query;
+  getProposals: () -> (vec Proposal) query;
+  getPublishedBlogPosts: () -> (vec BlogPost) query;
+  getPublishedMarketReports: () -> (vec MarketReport) query;
+  getQuoteRequests: () -> (vec QuoteRequest) query;
+  getRSVPsByEvent: (eventId: nat) -> (vec RSVP) query;
+  getRealTimeStats: () ->
+   (record {
+      activeNow: nat;
+      avgAccuracy: float64;
+      contentGenerated: nat;
+      lastUpdated: text;
+      leadsProcessed: nat;
+      propertiesAdded: nat;
+      tasksToday: nat;
+      totalAgents: nat;
+    }) query;
+  getRecentAgentActivities: (limit: nat) -> (vec AgentActivity) query;
+  getRecentlyAddedProperties: (n: nat) -> (vec PropertyListing) query;
+  getReferralByCode: (code: text) -> (opt Referral) query;
+  getResponseTimeBadge: () -> (text) query;
+  getReviews: () -> (vec ReviewRecord) query;
+  getRichSecurityEvents: (limit: nat) -> (vec RichSecurityEvent) query;
+  getSatisfactionRatings: () -> (vec SatisfactionRating) query;
+  getSecurityAuditLog: (limit: nat) -> (vec AuditEntry) query;
+  getSecurityEvents: (limit: nat) -> (vec SecurityEvent);
+  getSecurityHealthReport: (activeSessionCount: nat, suspendedAccountCount:
+   nat, pendingBiometricCount: nat, failedLoginsLast24h: nat,
+   lockoutsLast24h: nat) -> (SecurityHealthReport) query;
+  getSecurityScore: () -> (nat) query;
+  getSecurityStats: () ->
+   (record {
+      criticalCount: nat;
+      resolvedCount: nat;
+      threatsBlocked: nat;
+      totalEvents: nat;
+    }) query;
+  getService: (id: nat) -> (opt Service) query;
+  getServiceSubmissions: () -> (vec ServiceSubmission) query;
+  getSiteVisits: () -> (vec SiteVisit) query;
+  getSocietyReviews: (societyName: text) -> (vec SocietyReview) query;
+  getStaff: () -> (vec Staff);
+  getStaffById: (staffId: text) -> (opt Staff) query;
+  getStaffMembers: () -> (vec AdminStaffMember) query;
+  getSubmissionStats: () ->
+   (record {
+      byService: vec record {
+                       text;
+                       nat;
+                     };
+      total: nat;
+      unread: nat;
+    }) query;
+  getSubmissionsByService: (serviceCategory: text) ->
+   (vec ServiceSubmission) query;
+  getSupportForms: () -> (vec SupportForm) query;
+  /// Get recent security threat events (last N events).
+  getThreatAlerts: (limit: nat) -> (vec SecurityEvent);
+  getThreatIntel: (limit: nat) -> (vec ThreatIntelEntry) query;
+  getTopViewedProperties: (limit: nat) -> (vec record {
+                                                 text;
+                                                 nat;
+                                               }) query;
+  getTriggeredCanaries: () -> (vec CanaryToken) query;
+  getTutorialCompletions: (userId: opt text) ->
+   (vec TutorialCompletion) query;
+  getTutorialStats: () ->
+   (vec record {
+          appKey: text;
+          completions: nat;
+          skips: nat;
+        }) query;
+  getTutorialSteps: (appKey: text, mode: text) -> (vec TutorialStep) query;
+  getTutorialStepsByApp: (appId: text) -> (vec TutorialStep) query;
+  getTutorialSuggestions: () -> (vec TutorialSuggestion) query;
+  getUnreadNotificationCount: () -> (nat) query;
+  getVendor: (vendorId: text) -> (variant {
+                                    err: text;
+                                    ok: Vendor;
+                                  }) query;
+  getVisitRequests: () -> (vec VisitRequest) query;
+  getVisitorCount: () -> (nat) query;
+  /// Get weekly business review summary.
+  getWeeklyReview: () ->
+   (record {
+      closedDeals: nat;
+      newDeals: nat;
+      period: text;
+      securityEvents: nat;
+      summary: text;
+      totalEnquiries: nat;
+      totalLeads: nat;
+      totalProperties: nat;
+      totalStaff: nat;
+    }) query;
+  incrementPostViews: (postId: text) -> ();
+  incrementPropertyView: (propertyId: text) -> ();
+  incrementPropertyViews: (id: text) -> (bool);
+  incrementVisitorCount: () -> (nat);
+  invalidateAllSessions: (staffId: text) -> (bool);
+  invalidateSession: (sessionId: text) -> (bool);
+  isDeviceTrusted: (staffId: text, deviceId: text) -> (bool) query;
+  isIpBlocked: (ipAddress: text) -> (bool) query;
+  isLockdownActive: () -> (bool) query;
+  liftLockdown: (adminPasswordHash: text) -> (bool);
+  listAiDecisions: (limit: nat) -> (vec AiDecision) query;
+  listAllCampaigns: () -> (vec Campaign) query;
+  listAllClients: () -> (vec Client__1) query;
+  listAllEvents: () -> (vec Event_) query;
+  listAllObserverAccessLogs: (limit: nat) -> (vec ObserverAccessLog) query;
+  listAuctions: () -> (vec Auction) query;
+  listBookings: () -> (vec Booking) query;
+  listBriefings: (limit: nat) -> (vec DailyBriefing) query;
+  listBuilderTrust: () -> (vec BuilderTrustRecord) query;
+  listCanaryTokens: () -> (vec CanaryToken) query;
+  listCommissions: () -> (vec CommissionRecord) query;
+  listCourses: () -> (vec Course) query;
+  listDeals: () -> (vec Deal) query;
+  listDevices: (staffId: text) -> (vec DeviceRecord) query;
+  listExchangeListings: () -> (vec ExchangeListing) query;
+  listJantriRates: () -> (vec JantriRate) query;
+  listLegalDocs: () -> (vec LegalDoc) query;
+  listMediaPosts: () -> (vec MediaPost) query;
+  listObserverCodeInfos: (adminToken: text) -> (vec ObserverCodeInfo) query;
+  listObserverCodes: () -> (vec ObserverCodeRecord);
+  listPropertyIntelligence: () -> (vec PropertyIntelligence) query;
+  listStaff: () -> (vec Staff);
+  listVendors: () -> (vec Vendor) query;
+  logAIActivity: (agentId: text, actionType: text, count: nat, result:
+   text) -> ();
+  logAIAgentAction: (id: text, action: text) -> (bool);
+  logAction: (staffId: text, action: text, target: text, details: text,
+   ipAddress: text, deviceId: text) -> (nat);
+  logAgentActivity: (agentId: text, agentName: text, cluster: text, action:
+   text, status: text, result: text) -> ();
+  logAiDecision: (decisionType: AiDecisionType, description: text,
+   actionTaken: text, confidenceScore: nat, agentName: text, reversible:
+   bool, outcome: text) -> (variant {
+                              err: text;
+                              ok: AiDecision;
+                            });
+  logAuditEvent: (actorId: text, action: text, target: text, details: 
+   text, ip: text, result: text) -> (text);
+  logCallbackRequest: (name: text, phone: text, "service": text, pageName:
+   text) -> (text);
+  logChatInteraction: (sessionId: text, userMessage: text, botResponse:
+   text) -> (nat);
+  logChatTopic: (topic: text) -> (bool);
+  logFeedback: (rating: nat, comment: text, pageName: text) -> (text);
+  logLeadQualification: (sessionId: text, budget: text, location: text,
+   propertyType: text, leadScore: text) -> (text);
+  logMoreInfoRequest: (name: text, email: text, "service": text, question:
+   text, pageName: text) -> (text);
+  logObserverAccess: (code: text, sessionId: text, scope: text) -> (text);
+  logQuoteRequest: (name: text, phone: text, email: text, "service": 
+   text, message: text, pageName: text) -> (text);
+  logReferralClick: (code: text) -> ();
+  logReferralEnquiry: (code: text, enquiryId: text) -> ();
+  logSecurityEvent: (eventType: SecurityEventType, staffId: text, ipAddress:
+   text, deviceId: text, details: text) -> (nat);
+  logServiceSubmission: (serviceCategory: text, innerPage: text, formType:
+   text, fields: vec record {
+                       text;
+                       text;
+                     }, submitterName: text, submitterPhone: text,
+   submitterEmail: text, indemnityAccepted: bool) -> (nat);
+  logSupportForm: (name: text, phone: text, email: text, "service": text,
+   message: text) -> (text);
+  /// Authenticate with username + password. Returns session token, role, and message.
+  login: (id: text, password: text) ->
+   (record {
+      message: text;
+      ok: bool;
+      role: text;
+      sessionId: text;
+    });
+  /// Invalidate a session by token (logout).
+  logout: (token: text) -> ();
+  markAllCrmNotificationsRead: () -> (nat);
+  markAllNotificationsRead: () -> ();
+  markCallbackRead: (id: text, isRead: bool) -> (bool);
+  markCommissionPaid: (commissionId: text) -> (bool);
+  markCommissionPaidResult: (commissionId: text) ->
+   (variant {
+      err: text;
+      ok: CommissionRecord;
+    });
+  markCrmNotificationRead: (id: nat) -> (bool);
+  markEnquiryContacted: (id: text) -> (bool);
+  markFeedbackRead: (id: text, isRead: bool) -> (bool);
+  markMoreInfoRead: (id: text, isRead: bool) -> (bool);
+  markNotificationRead: (targetId: text) -> (bool);
+  markQuoteRead: (id: text, isRead: bool) -> (bool);
+  markSubmissionRead: (id: nat, isRead: bool) -> (bool);
+  markSupportRead: (id: text, isRead: bool) -> (bool);
+  placeBid: (auctionId: text, bidderId: text, amount: float64) ->
+   (variant {
+      err: text;
+      ok: Bid;
+    });
+  plantCanaryToken: (tokenLabel: text, tokenValue: text) ->
+   (variant {
+      err: text;
+      ok: CanaryToken;
+    });
+  publishBlogPost: (targetId: text, isPublished: bool) -> (bool);
+  publishMarketReport: (targetId: text, isPublished: bool) -> (bool);
+  publishMediaPost: (postId: text) -> (variant {
+                                         err: text;
+                                         ok: MediaPost;
+                                       });
+  rateVendor: (vendorId: text, rating: float64) ->
+   (variant {
+      err: text;
+      ok: Vendor;
+    });
+  recordLocalityEnquiry: (locality: text) -> ();
+  recordLocalityView: (locality: text) -> ();
+  recordPriceHistory: (propertyId: text, price: nat, recordedBy: text, note:
+   text) -> (variant {
+               err: text;
+               ok: PriceHistoryEntry;
+             });
+  recordPropertyEnquiry: (id: text) -> (bool);
+  recordSecurityEvent: (eventType: text, severity: text, description: 
+   text, ip: text, aiTierId: text) -> (text);
+  recordTutorialCompletion: (userId: text, appKey: text, mode: text, skipped:
+   bool) -> ();
+  registerDevice: (staffId: text, deviceId: text, userAgent: text, ipAddress:
+   text) -> (variant {
+               err: text;
+               ok: DeviceRecord;
+             });
+  registerForEvent: (id: text) -> (bool);
+  rejectTutorialSuggestion: (id: nat) -> (bool);
+  removeActiveVisitor: (visitorId: text) -> ();
+  removeStaff: (staffId: text) -> (bool);
+  reorderTutorialSteps: (appKey: text, mode: text, orderedIds: vec nat) ->
+   (bool);
+  resetFailedAttempts: (staffId: text) -> (bool);
+  resetTutorialCompletion: (userId: text, appKey: text) -> (bool);
+  resolveSecurityEvent: (id: text) -> (bool);
+  respondToReview: (id: nat, responseText: text) -> (bool);
+  revokeBiometric: (staffId: text) -> (bool);
+  revokeDevice: (staffId: text, deviceId: text) ->
+   (variant {
+      err: text;
+      ok: DeviceRecord;
+    });
+  revokeObserverCode: (code: text) -> (bool);
+  revokeObserverCodeInfo: (code: text, adminToken: text) -> (bool);
+  rollbackAiDecision: (decisionId: text, reason: text) ->
+   (variant {
+      err: text;
+      ok: AiDecision;
+    });
+  searchClients: (searchQuery: text) -> (vec Client) query;
+  searchInteractions: (queryText: text, offset: nat, limit: nat) ->
+   (vec ChatInteraction) query;
+  searchLeads: (searchQuery: text) -> (vec Lead) query;
+  searchProperties: (searchQuery: text) -> (vec Property) query;
+  sendOtp: (staffId: text) -> (bool);
+  setAutoArchiveDays: (days: nat) -> (bool);
+  setMobileNumber: (staffId: text, mobileNumber: text) -> (bool);
+  setResponseTimeBadge: ("text": text) -> (bool);
+  staffLogin: (loginId: text, password: text) ->
+   (opt
+     record {
+       accessLevel: text;
+       accessSections: vec text;
+       id: text;
+       name: text;
+       role: text;
+     }) query;
+  /// Submit a callback request form.
+  submitCallbackRequest: (name: text, phone: text, "service": text, pageName:
+   text) -> (text);
+  submitComplaint: (name: text, phone: text, "service": text, issue: 
+   text) -> (text);
+  /// Submit a contact / general enquiry form.
+  submitContactForm: (name: text, phone: text, email: text, subject: 
+   text, message: text) -> (text);
+  submitEnquiry: (listingId: text, buyerId: text, message: text, offerPrice:
+   opt float64) -> (variant {
+                      err: text;
+                      ok: ExchangeEnquiry;
+                    });
+  submitLeadQualification: (sessionId: text, answers:
+   record {
+     budget: text;
+     location: text;
+     name: text;
+     phone: text;
+     propertyType: text;
+   }) -> (text);
+  submitPropertyAlert: (name: text, phone: text, email: text, propertyType:
+   text, action: text, location: text, maxBudget: nat, bhk: text) -> (
+   text);
+  submitPropertyEnquiry: (propertyId: text, customerName: text,
+   customerPhone: text, customerEmail: text, customerMessage: text,
+   preferredTime: text, visitDate: text) -> (text);
+  /// Submit a quote request form.
+  submitQuoteRequest: (name: text, phone: text, email: text, "service": 
+   text, message: text, pageName: text) -> (text);
+  submitSatisfactionRating: (enquiryId: text, rating: nat, feedback: 
+   text) -> (bool);
+  /// Submit a service-specific form (routes to the service submission log).
+  submitServiceForm: (serviceCategory: text, innerPage: text, formType: 
+   text, fields: vec record {
+                       text;
+                       text;
+                     }, submitterName: text, submitterPhone: text,
+   submitterEmail: text, indemnityAccepted: bool) -> (text);
+  submitSocietyReview: (societyName: text, reviewerAlias: text, rating: 
+   nat, maintenance: nat, security: nat, amenities: nat, management: 
+   nat, review: text) -> (bool);
+  submitVisitRequest: (propertyId: text, propertyTitle: text, customerName:
+   text, customerPhone: text, customerEmail: text, preferredDate: text,
+   preferredTime: text, visitType: text) -> (text);
+  suspendStaff: (staffId: text) -> (bool);
+  terminateSession: (token: text) -> (bool);
+  toggleAnnouncement: (id: text, isActive: bool) -> (bool);
+  triggerCanary: (tokenValue: text, triggeredBy: text) ->
+   (variant {
+      err: text;
+      ok: CanaryToken;
+    });
+  updateAIAgentFullConfig: (id: text, config: text) -> (bool);
+  updateAIAgentStatus: (id: text, isActive: bool) -> (bool);
+  updateAIInsightStatus: (id: text, status: text) -> (bool);
+  updateAISystemConfig: (config: AISystemConfig) -> (bool);
+  updateAppointmentStatus: (targetId: text, status: text) -> (bool);
+  updateBookingStatus: (bookingId: text, status: text) ->
+   (variant {
+      err: text;
+      ok: Booking;
+    });
+  updateClient: (id: text, name: text, phone: text, email: text, notes:
+   text) -> (bool);
+  updateCommissionInvoiceStatus: (id: nat, status: text) -> (bool);
+  updateComplaintStatus: (id: text, status: text, notes: text) -> (bool);
+  updateCrmLeadStage: (id: nat, stage: text, score: text) -> (bool);
+  updateCsrEntry: (adminToken: text, id: text, value: nat, description:
+   text) -> (bool);
+  updateDealStage: (dealId: text, stage: text) ->
+   (variant {
+      err: text;
+      ok: Deal;
+    });
+  updateDocStatus: (id: text, newStatus: text) -> (bool);
+  updateEnquiryStatus: (id: text, status: text, notes: text) -> (bool);
+  updateEventBookingStatus: (adminToken: text, id: text, status: text) ->
+   (bool);
+  updateInvoiceStatus: (targetId: text, status: text) -> (bool);
+  updateLead: (id: text, status: text, score: nat, assignedTo: text, notes:
+   text) -> (bool);
+  updateLeadLastContacted: (leadId: text) -> (bool);
+  updateLeadScore: (id: text, score: nat) -> (bool);
+  updateLeadStage: (id: text, stage: text) -> (bool);
+  updateListingStatus: (listingId: text, status: text) ->
+   (variant {
+      err: text;
+      ok: ExchangeListing;
+    });
+  updateMarketDataCache: () -> (bool);
+  updateMusicArtist: (adminToken: text, id: text, available: bool, bio:
+   text) -> (bool);
+  updatePartnerStatus: (targetId: text, status: text, notes: text) -> (bool);
+  updateProgress: (courseId: text, studentId: text, lessonId: text) ->
+   (variant {
+      err: text;
+      ok: Enrollment;
+    });
+  updateProperty: (id: text, title: text, status: text, description: 
+   text) -> (bool);
+  updateSiteVisitStatus: (targetId: text, status: text) -> (bool);
+  updateStaff: (staffId: text, name: text, email: text, role: StaffRole) ->
+   (bool);
+  updateStaffMobile: (staffId: text, mobileNumber: text) -> (bool);
+  updateStaffRole: (staffId: text, role: StaffRole) -> (bool);
+  updateStaffStatus: (staffId: text, status: text) -> (bool);
+  updateTutorialStepDesc: (id: text, description: text) -> (bool);
+  updateVendorJobStatus: (jobId: text, status: text) ->
+   (variant {
+      err: text;
+      ok: VendorJob;
+    });
+  updateVisitRequestStatus: (id: text, status: text) -> (bool);
+  upsertBuilderTrust: (builderId: text, builderName: text, reraFilingCount:
+   nat, complaintCount: nat, deliveryScore: nat) ->
+   (variant {
+      err: text;
+      ok: BuilderTrustRecord;
+    });
+  upsertJantriRate: (area: text, ratePerSqFt: nat, effectiveFrom: text) ->
+   (variant {
+      err: text;
+      ok: JantriRate;
+    });
+  upsertPropertyIntelligence: (propertyId: text, reraNumber: text, builderId:
+   text, amenities: vec text, investmentGrade: InvestmentGrade,
+   negotiationMin: nat, negotiationMax: nat, builderTrustScore: nat,
+   latitude: float64, longitude: float64) ->
+   (variant {
+      err: text;
+      ok: PropertyIntelligence;
+    });
+  upsertTutorialStep: (step: TutorialStep) -> (nat);
+  validateObserverCode: (code: text) -> (bool) query;
+  validateObserverCodeInfo: (code: text, visitorInfo: text) -> (bool);
+  validateOtp: (staffId: text, code: text) -> (bool);
+  validateSession: (sessionId: text, deviceId: text) -> (bool) query;
+  validateSessionToken: (token: text) -> (opt Staff);
+  /// Verify a mobile OTP for the given staffId. Returns session token on success.
+  verifyOTP: (phone: text, code: text) ->
+   (record {
+      message: text;
+      ok: bool;
+      role: text;
+      sessionId: text;
+    });
+  verifyOtp: (staffId: text, code: text, deviceId: text, ipAddress: text,
+   userAgent: text) ->
+   (record {
+      message: text;
+      ok: bool;
+      role: text;
+      sessionId: text;
+    });
+}
